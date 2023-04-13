@@ -107,7 +107,7 @@ public class PanelInput extends JPanel {
 
     public Person getSelectedPerson(){
         int selectedRow = jTable.getSelectedRow();
-        if (selectedRow != -1 && selectedRow < jTable.getRowCount()) {
+        if (selectedRow != -1) {
             String value = (String)jTable.getValueAt(selectedRow, jTable.getSelectedColumn());
             return dialogPeople.getPerson(value);
         }

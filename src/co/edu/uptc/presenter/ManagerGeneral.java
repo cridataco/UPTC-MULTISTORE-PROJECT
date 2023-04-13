@@ -1,63 +1,50 @@
 package co.edu.uptc.presenter;
 
-import co.edu.uptc.models.graphs.a202127812Graphs.ManagerModelGraphs202127812;
-import co.edu.uptc.models.people.model202128687.ManagerModel202128687;
-import co.edu.uptc.models.people.model202114641.ManagerModel202114641;
-import co.edu.uptc.models.people.model202127343.ManagerModel202127343;
-import co.edu.uptc.models.people.model202022012.ManagerModel202022012;
-import co.edu.uptc.models.people.model202127717.ManagerModel202127717;
-import co.edu.uptc.models.people.model202128778.Manager202128778;
-import co.edu.uptc.models.people.model202127812.ManagerModel202127812;
-import co.edu.uptc.models.people.model202127061.ManagerModel202127061;
-import co.edu.uptc.models.people.modelGerman.ManagerModel;
+import co.edu.uptc.models.model202128687.ManagerModel202128687;
+import co.edu.uptc.models.model202114641.ManagerModel202114641;
+import co.edu.uptc.models.model202127343.ManagerModel202127343;
+import co.edu.uptc.models.model202022012.ManagerModel202022012;
+import co.edu.uptc.models.model202127717.ManagerModel202127717;
+import co.edu.uptc.models.model202128778.Manager202128778;
+import co.edu.uptc.models.model202127812.ManagerModel202127812;
+import co.edu.uptc.models.model202127061.ManagerModel202127061;
+import co.edu.uptc.models.modelGerman.ManagerModel;
 
-import co.edu.uptc.models.people.model202113049.ManagerModel_202113049;
+import co.edu.uptc.models.model202113049.ManagerModel_202113049;
 
 
-import co.edu.uptc.models.people.model202115100.ManegerModel202115100;
+import co.edu.uptc.models.model202115100.ManegerModel202115100;
 
 import co.edu.uptc.views.board.DashBoard;
-import co.edu.uptc.views.maps.ManagerGraphs;
 
 
 public class ManagerGeneral {
     private static ManagerGeneral instance;
-    ContractPeople.View view;
-    ContractGraphs.View viewGraphs;
-    ContractPeople.Model modelGerman;
-    ContractPeople.Model model202127061;
-    ContractPeople.Model model202113059;
-    ContractPeople.Model model202128687;
-    ContractPeople.Model model202128778;
-    ContractPeople.Model  model202127343;
-    ContractPeople.Model model202022012;
-    ContractPeople.Presenter presenter;
-    ContractGraphs.Presenter presenterGraphs;
-    ContractPeople.Model model202127812;
-    ContractPeople.Model modelSebastian;
-    ContractPeople.Model model202115100;
-    ContractPeople.Model model202127717;
-
-    ContractGraphs.Model modelGraphs202127812;
-    ContractGraphs.Model modelGraphsPrueba;
+    ContratBills.View view;
+    ContratBills.Model modelGerman;
+    ContratBills.Model model202127061;
+    ContratBills.Model model202113059;
+    ContratBills.Model model202128687;
+    ContratBills.Model model202128778;
+    ContratBills.Model  model202127343;
+    ContratBills.Model model202022012;
+    ContratBills.Presenter presenter;
+    ContratBills.Model model202127812;
+    ContratBills.Model modelSebastian;
+    ContratBills.Model model202115100;
+    ContratBills.Model model202127717;
 
     private ManagerGeneral() {
     }
 
     private void createMVP(){
          view = new DashBoard();
-         viewGraphs = ManagerGraphs.getInstance();
          presenter = new Presenter();
-         presenterGraphs = new PresenterGraphs();
          view.setPresenter(presenter);
-         viewGraphs.setPresenter(presenterGraphs);
          presenter.setView(view);
-         presenterGraphs.setView(viewGraphs);
          createModels();
-         createModelsGraphs();
          configModelUserGerman();
          configModelUserSantiago_202115100();
-         configModelGraphs202127812();
      }
 
      public static ManagerGeneral getInstance(){
@@ -78,12 +65,6 @@ public class ManagerGeneral {
          modelSebastian= new ManagerModel202114641();
          model202115100 = new ManegerModel202115100();
          model202127717 = new ManagerModel202127717();
-     }
-
-     private void createModelsGraphs(){
-         // TODO aqui se cream todos los modelos de grafos
-        modelGraphs202127812 = new ManagerModelGraphs202127812();
-        modelGraphsPrueba = new ManagerModelGraphs202127812();
      }
 
      public void configModelUserGerman(){
@@ -152,20 +133,6 @@ public class ManagerGeneral {
         model202128778.setPresenter(presenter);
         presenter.setModel(model202128778);
         view.updatedPeople();
-    }
-
-    public void configModelGraphs202127812(){
-        // TODO  configurar modelo de grafos - guia
-        modelGraphs202127812.setPresenter(presenterGraphs);
-        presenterGraphs.setModel(modelGraphs202127812);
-        viewGraphs.updateGraph();
-    }
-
-    public void configModelGraphsPrueba(){
-        // TODO  configurar modelo de grafos - guia
-        modelGraphsPrueba.setPresenter(presenterGraphs);
-        presenterGraphs.setModel(modelGraphsPrueba);
-        viewGraphs.updateGraph();
     }
 
     public void runProject(){

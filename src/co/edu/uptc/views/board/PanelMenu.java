@@ -45,7 +45,6 @@ public class PanelMenu extends JPanel {
         listItemMenu.add( new ItemMenu("MENÚ",0,false));
         listItemMenu.add( new ItemMenu("Personas",1,true));
         listItemMenu.add( new ItemMenu("Mapa",1,true));
-        listItemMenu.add( new ItemMenu("Acerca de",1,true));
         listItemMenu.add( new ItemMenu("Salir",1,true));
 
     }
@@ -130,12 +129,22 @@ public class PanelMenu extends JPanel {
     }
 
 
+
+
     private void showPanel(ItemMenu itemMenu){
         switch (itemMenu.text){
-            case "Personas" ->dashBoard.showPanelPeople();
-            case "Mapa" ->dashBoard.showPanelMap();
-            case "Acerca de" ->dashBoard.showPanelAbout();
-            case "Salir" ->validateClose();
+            case "Personas": {
+                dashBoard.showPanelPeople();
+                break;
+            }
+            case "Mapa": {
+              dashBoard.showPanelMap();
+                break;
+            }
+            case "Salir": {
+                validateClose();
+                break;
+            }
         }
     }
 

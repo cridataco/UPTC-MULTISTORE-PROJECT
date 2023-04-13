@@ -5,6 +5,4 @@ public class Main {
         ManagerGeneral.getInstance().runProject();
     }
 
-
-
 }
