@@ -3,7 +3,6 @@
 *.iml
 .attach*
 
-
 # Compiled output
 /dist
 /tmp
@@ -11,7 +10,6 @@
 /bazel-out
 /out
 /data/*.json
-
 
 # IDEs and editors
 .idea/
