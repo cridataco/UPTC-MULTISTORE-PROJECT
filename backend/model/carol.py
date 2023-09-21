@@ -1,7 +1,8 @@
 import sqlite3
-from flask import Flask, jsonify
+import flet as ft, jsonify
+from flet_core import FletApp
 
-app = Flask(__name__)
+app = FletApp(__name__)
 
 def obtener_videos_y_fotos(producto_id):
     conn = sqlite3.connect('mi_base_de_datos.db')
