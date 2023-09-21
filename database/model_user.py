@@ -15,6 +15,7 @@ class User(Base):
     correo_electronico = Column(String(100), nullable=False, unique=True)
     contrasena_cuenta = Column(String(50), nullable=False)
     nombre_usuario = Column(String(30), nullable=False, unique=True)
+    productos = relationship("Producto", back_populates="usuario")
 
 
 Base.metadata.create_all(engine)
