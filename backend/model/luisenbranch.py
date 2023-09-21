@@ -1,6 +1,6 @@
-from flask import Flask, request, jsonify
+from flet_core import FletApp, request, jsonify
 
-app = Flask(__name__)
+app = FletApp(__name__)
 
 # Datos quemados para productos
 productos = [
