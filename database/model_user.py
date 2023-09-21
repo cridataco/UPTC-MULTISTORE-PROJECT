@@ -1,5 +1,5 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy import Column, Integer, String, Date, Boolean, create_engine
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
@@ -15,6 +15,12 @@ class User(Base):
     correo_electronico = Column(String(100), nullable=False, unique=True)
     contrasena_cuenta = Column(String(50), nullable=False)
     nombre_usuario = Column(String(30), nullable=False, unique=True)
+    fecha_nacimiento = Column(Date)
+    numero_documento = Column(String(11), nullable=False, unique=True)
+    tipo_documento = Column()
+    #Falta Column(TIPO_DOCUMENTO)
+    es_vendedor = Column(Boolean)
+    numero_celular = Column(String(1024))
 
 
 Base.metadata.create_all(engine)
