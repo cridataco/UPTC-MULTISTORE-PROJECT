@@ -16,9 +16,9 @@ class User(Base):
     contrasena_cuenta = Column(String(50), nullable=False)
     nombre_usuario = Column(String(30), nullable=False, unique=True)
     fecha_nacimiento = Column(Date)
-    numero_documento = Column(String(11), nullable=False, unique=True)
-    tipo_documento = Column()
-    #Falta Column(TIPO_DOCUMENTO)
+    numero_documento = Column(String(12), nullable=False, unique=True)
+    tipo_documento = Column(Integer(10), nullable=False, unique=True)
+    
     es_vendedor = Column(Boolean)
     numero_celular = Column(String(1024))
 
