@@ -10,4 +10,7 @@ class ConnectionDB:
         self.engine = create_engine(db_url)
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
-        print("Database connected successfully")
+
+        #Prueba
+
+
