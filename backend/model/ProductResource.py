@@ -1,12 +1,25 @@
-class ProductResource:
+from sqlalchemy import Column, Integer, Float, String, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 
-    def __int__(self, product_length, product_width, product_height, product_weight, product_dimension, product_url_resources):
-        self.product_length = product_length
-        self.product_width = product_width
-        self.product_height = product_height
-        self.product_weight = product_weight
-        self.product_dimension = product_dimension
-        self.product_url_resources = list()
+Base = declarative_base()
+
+
+class ProductResource(Base):
+    __tablename__ = "product_resources"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    product_length = Column(Float, nullable=False)
+    product_width = Column(Float, nullable=False)
+    product_height = Column(Float, nullable=False)
+    product_weight = Column(Float, nullable=False)
+    product_dimension = Column(String, nullable=False)
+
+    product_id = Column(Integer, ForeignKey("products.id"))
+
+    product = relationship("Product", back_populates="product_resources")
+
+    product_url_resources = relationship("ProductURLResource", back_populates="product_resource")
 
     def product_volume(self):
         return self.product_length * self.product_width * self.product_height
@@ -14,10 +27,12 @@ class ProductResource:
     def product_density(self):
         return self.product_weight / self.product_volume()
 
-    def add_url_resource(self, url):
-        self.product_url_resources.append(url)
 
-    def remove_url_resource(self, url):
-        self.product_url_resources.remove(url)
+class ProductURLResource(Base):
+    __tablename__ = "product_url_resources"
 
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    url = Column(String, nullable=False)
+    product_resource_id = Column(Integer, ForeignKey("product_resources.id"))
 
+    product_resource = relationship("ProductResource", back_populates="product_url_resources")
