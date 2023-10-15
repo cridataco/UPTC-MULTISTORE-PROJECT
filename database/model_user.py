@@ -1,26 +1,29 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Date, Boolean, create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Column, Integer, String, Date, create_engine
+from sqlalchemy.orm import sessionmaker, relationship
 
 Base = declarative_base()
 
-engine = create_engine('conexion bd')
-Session = sessionmaker(bind=engine)
+# engine = create_engine('conexion bd')
+# Session = sessionmaker(bind=engine)
 
 class User(Base):
-    __tablename__ = 'usuarios'
+    __tablename__ = 'users'
 
-    id_user = Column(Integer(), primary_key=True, autoincrement=True)
-    id_plataforma = Column(String(15), nullable=False, unique=True)
-    correo_electronico = Column(String(100), nullable=False, unique=True)
-    contrasena_cuenta = Column(String(50), nullable=False)
-    nombre_usuario = Column(String(30), nullable=False, unique=True)
-    fecha_nacimiento = Column(Date)
-    numero_documento = Column(String(12), nullable=False, unique=True)
-    tipo_documento = Column(Integer(10), nullable=False, unique=True)
+    id_user = Column(Integer, primary_key=True, autoincrement=True)
+    id_platform = Column(String(15), nullable=False, unique=True)
+    email = Column(String(100), nullable=False, unique=True)
+    user_name = Column(String(30), nullable=False)
+    birthdate = Column(Date, nullable=False)
+    document_number = Column(String(11), nullable=False, unique=True)
+    document_type = Column(Integer, nullable=False)
+    is_client = Column(Integer, nullable=False)
+    cell_phone_number = Column(String(10), nullable=False)
+    user_rol = Column(String(7), nullable=False)
+    user_permissions = Column(String(7), nullable=False)
     
-    es_vendedor = Column(Boolean)
-    numero_celular = Column(String(1024))
+    shipping_address = relationship("ShippingAddress")
+    orders = relationship("Orders")
+    
 
-
-Base.metadata.create_all(engine)
+# Base.metadata.create_all(engine)
