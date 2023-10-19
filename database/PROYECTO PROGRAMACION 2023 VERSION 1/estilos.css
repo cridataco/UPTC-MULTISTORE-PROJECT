@@ -1,0 +1,724 @@
+*{
+margin: 0;
+padding: 0;
+} /* Estilos CSS para la barra de navegación */
+ .navbar {
+    background-color:   #227873; /* Cambia el color de fondo según tus preferencias */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos CSS para la barra de búsqueda */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white; /* Agrega un fondo blanco a la barra de búsqueda */
+    padding: 8px; /* Agrega relleno para separar el contenido de los bordes */
+    border-radius: 25px;
+}
+
+.search-container input[type=text] {
+    padding: 0; /* Quita el relleno del input */
+    font-size: 17px;
+    border: none;
+    margin-right: 5px;
+    height: 36px;
+    width: 600px; /* Ajusta el ancho de la barra de búsqueda según tus necesidades */
+    outline: none;
+}
+
+.search-container button {
+    padding: 0; /* Quita el relleno para ajustar el tamaño del botón a la imagen */
+    background: none; /* Quita el fondo del botón */
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilos CSS para los botones cuadrados */
+.square-buttons {
+    display: flex;
+}
+
+.square-buttons a {
+    display: inline-block; /* Hace que los enlaces sean elementos en bloque */
+    margin-right: 5px;
+    border: none; /* Quita el borde gris */
+    border-radius: 0; /* Quita el borde redondeado */
+    text-decoration: none; /* Quita el subrayado predeterminado de los enlaces */
+}
+
+.square-buttons a img {
+    width: 50px; /* Ancho ajustado */
+    height: 50px; /* Alto ajustado */
+    width: 100%; /* Haz que la imagen ocupe el 100% del enlace */
+    /*height: auto; /* Mantén la proporción de la imagen */
+}
+
+/* Estilos CSS para el logo */
+.logo {
+    width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
+}
+
+/* Estilos CSS para los enlaces */
+.links {
+    background-color: #227873;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    padding: 10px 0;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px; /* Espacio hacia los lados izquierdo y derecho */
+}
+        /* Estilos CSS para la rectángulo verde (.island-box) */
+/* Estilos CSS para la .island-box */
+.island-box {
+    position: fixed;
+    top: 139px; /* Añade margen superior desde donde termina la barra */
+    right: 20px;
+    height: 550px;
+    width: 380px;
+    background-color: #C9E4E7;
+    border-radius: 15px;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+    z-index: 100;
+    margin-right: 50px;
+}
+
+
+
+
+.title {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+
+.currency {
+    font-size: 45px;
+    font-weight: 500;
+}
+
+.price {
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.buy-button, .add-to-cart-button {
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+
+/* Estilos CSS para el rectángulo verde */
+.product-rectangle {
+    margin-left: 50px;
+    width: 800px;
+    background-color: #31A49D; /* Color de fondo */
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px; /* Aumenta el relleno para separar el contenido de los bordes */
+    border-radius: 15px;
+    color: #000;
+    text-align: center;
+    margin-right: 50px;
+   
+  
+}
+
+.product-rectangle-back{
+    margin-left: 60px;
+    width: 900px;
+    background-color: #31A49D; /* Color de fondo */
+    display: flex;
+    padding: 20px; /* Aumenta el relleno para separar el contenido de los bordes */
+    border-radius: 15px;
+    color: #000;
+    text-align: center;
+    margin-top: 20px; /* Agrega margen superior de 20px desde donde termina la barra */
+    margin-right: 60px;
+}
+
+
+.product-image img {
+    width: 460px; /* Establece un ancho fijo para la imagen grande */
+    height: 400px; /* Establece un alto fijo para la imagen grande */
+    transition: transform 0.3s;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+
+.thumbnails img {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.options-label {
+    font-family: 'Raleway', sans-serif;
+    text-align: left; /* Alinea a la izquierda */
+}
+/* Estilo para la imagen grande */
+#largeImage {
+    max-width: 100%;
+    transition: transform 0.3s;
+    cursor: zoom-in;
+}
+
+#largeImage:hover {
+    transform: scale(1.2); /* Ajusta el nivel de zoom al pasar el cursor */
+    cursor: zoom-out;
+}
+
+/* Estilo para las miniaturas (puedes personalizarlo según tus necesidades) */
+.thumbnails img {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.size-button {
+        display: inline-block; /* Hacer que los botones sean elementos en línea para que estén en línea horizontalmente */
+        width: auto; /* Ancho automático para adaptarse al contenido */
+        height: 30px; /* Ajusta la altura de los botones según tus necesidades */
+        background-color: #FFFFFF;
+        color: #000000;
+        border: none;
+        border-radius: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        margin-right: 10px; /* Agregar margen derecho entre los botones de talla */
+        margin-bottom: 5px; /* Agregar espacio entre los botones */
+        display: inline-block; /* Hace que los botones sean elementos en línea para mostrarlos en una fila horizontal */
+        margin-right: 10px; /* Agrega margen derecho entre los botones de talla para separarlos */
+        margin-bottom: 0; /* Establece el margen inferior en 0 para evitar espacio adicional entre los botones */
+        margin-top: 20px;
+ }
+
+ .description2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    margin-top: 100px;
+}
+
+.description3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+
+.title {
+    margin-top: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold; /* Aplicar negrilla a la fuente */
+    font-size: 36px;
+}
+
+
+.currency {
+    margin-top: 0px;
+    margin-left: 45px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 400; /* Medium */
+    margin-right: 5px; /* Ajusta el margen derecho para reducir el espacio entre currency y price */
+}
+
+.price {
+    margin-top: 3px;
+    margin-right: 45px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;
+    font-weight: 500; /* Medium */
+}
+
+
+.price-container {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Esto hará que currency y price ocupen el espacio necesario */
+    gap: 0px; /* Ajusta este valor según tu preferencia para el espaciado (menor valor) */
+    align-items: center;
+}
+
+
+
+.buy-button, .add-to-cart-button {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    background-color: #EEFFFF;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 5px;
+}
+
+.buy-button:hover, .add-to-cart-button:hover {
+    background-color: #FFFFEE;
+    color: #000;
+}
+
+.rating {
+    font-size: 30px; /* Ajusta el tamaño según tu diseño */
+}
+
+.description {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    margin-top: 20px;
+}
+.details1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-right: 300px;
+    text-align: left;
+}
+.details2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 300px;
+    text-align: left;
+}
+
+.details3 {
+    color:#868e96;
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 300px;
+    text-align: left;
+}
+/*-------*/
+/* Estilo para etiquetas de formulario */
+/* Estilo para etiquetas de formulario */
+.form-label {
+    color: #868e96;
+    font-size: 0.7875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  /* Estilo para el contenedor de botones de colores */
+  .colours-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-right: 8px; /* Espacio entre los botones */
+  }
+  
+  .list-inline {
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0; /* Quita el margen de la lista */
+    padding: 0; /* Quita el relleno de la lista */
+}
+.btn-colour:active {
+    background: none;
+    box-shadow: none;
+}
+
+ /* Estilo para botones de colores */
+.btn-colour {
+    font-family: 'Raleway', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s; /* Agrega transiciones de animación */
+    position: relative;
+    display: inline-block;
+    width: 30px; /* Reduce el tamaño de los botones a 36px */
+    height: 30px;
+    margin:5 10px; /* Reduce el margen y establece 4px en ambos lados */
+    border-radius: 50%;
+    border-style:inset;
+ /*   box-shadow: inset 0 0 0 5px #fff, 0 0 0 1px #2c2e30;*/
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    outline: none !important;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  .btn-colour::after {
+    content: none; /* Oculta el contenido adicional que pueda estar presente */
+}
+
+  
+  /* Estilo para botones de colores al pasar el mouse sobre ellos */
+  .btn-colour:hover {
+    transform: scale(1.1); /* Escala el botón al pasar el mouse */
+    box-shadow: inset 0 0 0 5px #fff, 0 0 0 1px #868e96;
+  }
+  
+  /* Estilo para botones de colores activos o seleccionados */
+  .btn-colour.active {
+    background-color: #fff;
+    box-shadow: inset 0 0 0 5px #fff, 0 0 0 1px #868e96;
+  }
+  
+  
+  /* Estilo para la animación "pulse" */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Aplica la animación "pulse" a todos los botones */
+  .btn-colour, .btn-violet {
+    outline: none;
+    user-select: none;
+    animation: pulse 1.5s infinite; /* Aplica la animación "pulse" de forma infinita */
+  }
+  
+/* ------TABLA _______*/
+/* Aplicar estilos a la tabla */
+table {
+    font-family: 'Raleway', sans-serif;
+    width: 52%; /* Ancho de la tabla */
+    margin-left: 100px; /* Margen de 100px a la izquierda */
+    margin-top: 40px; /* Margen de 40px arriba */
+    margin-right: 500px;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #888; /* Fondo gris más oscuro para la cabecera */
+    padding: 10px;
+    border: none;
+}
+
+td {
+    padding: 10px;
+}
+
+.gris {
+    background-color: lightgray; /* Fondo gris para las celdas impares */
+}
+
+.blanco {
+    background-color: white; /* Fondo blanco para las celdas pares */
+}
+
+/* -------VALORACIONES-------- */
+/*-----ESTRELLAS ESTATICAS ISLA____ */
+.valoraciones2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0px;
+    margin-left: 10px; 
+    margin-top: 40px; /* Margen de 40px arriba */
+    
+}
+.estrellas-solo-lectura{
+    margin-right: 80px;
+    font-size: 50px;
+    font-size: 16px;
+    pointer-events: none; /* Evita interacción con las estrellas pequeñas */
+}
+
+
+.stars .star {
+    font-size: 40px;
+    font-family: 'Raleway', sans-serif;
+    color: gray; /* Color de estrellas desactivadas */
+}
+
+
+
+#votos {
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    margin-left: 10px;
+    color: #888;
+}
+/* Estilo para estrellas en modo "solo lectura" */
+.estrellas-solo-lectura .estrella {
+    pointer-events: none; /* Evita la interacción con las estrellas */
+}
+
+
+
+.valoraciones {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 100px; /* Margen de 100px a la izquierda */
+    margin-top: 40px; /* Margen de 40px arriba */
+}
+
+
+.estrellas {
+    font-size: 50px;
+    margin-top: 5px;
+    margin-right: 1px;
+}
+
+.estrella {
+    color: #FFD700; /* Color dorado para las estrellas */
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+/* Establece un estilo inicial para las estrellas grandes */
+
+
+/* Establece un estilo inicial para las estrellas pequeñas (solo lectura) */
+#promedio {
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px; /* Tamaño de fuente más grande */
+    margin-left: 50px;
+    font-weight: bold;
+}
+#promedio2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 45px; /* Tamaño de fuente más grande */
+    font-weight: bold;
+    margin-right: 80px;
+}
+/*seccion preguntas y respuestas -----*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.qna-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.question {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+
+
+.qna-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 60px; /* Agrega un margen de 10px a la izquierda */
+}
+.question-header {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+.heart-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+.question-text {
+    font-family: 'Raleway', sans-serif;
+    margin: 10px 0;
+    font-size: 16px;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+.answer {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 10px;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+.answer h4 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+.ask-question {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+.ask-question h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+textarea {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+
+.ask-button {
+    font-family: 'Raleway', sans-serif;
+    background-color: #227873;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 100px;
+    margin-left: 0px;
+}
+/*seccion de comentatios*/
+.comentarios-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 10px; /* Ajusta el margen izquierdo a 10px */
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.comentario {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.comentario-info {
+    display: flex;
+    align-items: center;
+}
+
+.comentario-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.usuario-nombre {
+    font-weight: bold;
+}
+
+.comentario-texto {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.comentario-rating {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.comentario-utilidad {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn-util, .btn-no-util {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-no-util {
+    background-color: #d9534f;
+}
+
+.btn-util:hover, .btn-no-util:hover {
+    background-color: #23527c;
+}
+
+.comentario-images img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+}
+
+.comentario-images img:not(:first-child) {
+    margin-left: 5px;
+}
+
+/* Otras reglas de estilo siguen siendo las mismas */
+.comentarios-section{
+    font-family: 'Raleway', sans-serif;
+    margin-left: 60px;
+}
+/*-----*-/
+/* Estilo para las imágenes de los comentarios */
+.comentario-image {
+    width: 100px; /* Establece un tamaño inicial para las imágenes */
+    height: auto; /* Mantén la proporción de la imagen */
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.comentario-image:hover {
+    transform: scale(1.2); /* Ajusta el nivel de zoom al pasar el cursor */
+}
+
+/* Estilo para la expansión al hacer clic */
+.comentario-image.expanded {
+    transform: scale(2); /* Ajusta el nivel de zoom al hacer clic */
+}
