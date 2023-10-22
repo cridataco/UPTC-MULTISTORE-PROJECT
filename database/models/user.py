@@ -1,14 +1,10 @@
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Date, create_engine
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy import Column, Integer, String, Date, text
+from sqlalchemy.orm import relationship
+from .sql_base import Base
 
-Base = declarative_base()
-
-# engine = create_engine('conexion bd')
-# Session = sessionmaker(bind=engine)
 
 class User(Base):
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     id_user = Column(Integer, primary_key=True, autoincrement=True)
     id_platform = Column(String(15), nullable=False, unique=True)
@@ -21,9 +17,15 @@ class User(Base):
     cell_phone_number = Column(String(10), nullable=False)
     user_rol = Column(String(7), nullable=False)
     user_permissions = Column(String(7), nullable=False)
-    
-    shipping_address = relationship("ShippingAddress")
-    orders = relationship("Orders")
-    
+    date_account_deletion = Column(Date, nullable=False)
+    date_account_creation = Column(Date, nullable=True)
 
-# Base.metadata.create_all(engine)
+    shipping_addresses = relationship("ShippingAddress")
+    orders = relationship("Orders")
+
+    def getOlderUserCreated(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT * FROM users ORDER BY date_account_creation DESC LIMIT 1;")
+            )
+        return result.fetchone()

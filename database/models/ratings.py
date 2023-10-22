@@ -1,7 +1,6 @@
 from sqlalchemy import Column, String, Integer, Date, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from sqlalchemy.orm import relationship
+from .sql_base import Base
 
 
 class Ratings(Base):
@@ -17,3 +16,9 @@ class Ratings(Base):
     comment = Column(String(1000), nullable=False)
     rating_date = Column(Date, nullable=False)
     rating_edit_date = Column(Date, nullable=True)
+    rating_elimination_date = Column(Date, nullable=True)
+    
+    #Many ratings can be for One order
+    order = relationship("Orders", back_populates="ratings")
+    #Many ratings can be for One product
+    product = relationship("Product", back_populates="ratings")
