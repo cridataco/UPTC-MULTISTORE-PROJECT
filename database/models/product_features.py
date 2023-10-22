@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from sqlalchemy.orm import relationship
+from .sql_base import Base
 
 
 class ProductFeatures(Base):
@@ -14,3 +13,8 @@ class ProductFeatures(Base):
         Integer, ForeignKey("features.id_feature"), primary_key=True, nullable=False
     )  # fk features
     feature_value = Column(String(30), nullable=True)
+
+    #Many product features can be from One product
+    product = relationship("Product", back_populates="product_features")
+    #Many product features can be One feature
+    feature = relationship("Features", back_populates="product_features")

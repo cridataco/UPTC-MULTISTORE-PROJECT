@@ -1,8 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from .sql_base import Base
 
 class Features(Base):
     __tablename__ = "features"

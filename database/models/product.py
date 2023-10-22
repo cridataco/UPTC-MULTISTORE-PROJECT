@@ -1,10 +1,9 @@
 from sqlalchemy import Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from .sql_base import Base
 
-Base = declarative_base()
 
-class Producto(Base):
+class Product(Base):
     __tablename__ = "product"
 
     id_product = Column(Integer, primary_key=True, autoincrement=True)  # pk id
@@ -17,8 +16,14 @@ class Producto(Base):
     key_words = Column(String(100), nullable=True)
     product_link = Column(String(500), nullable=True)
     
-    ratings = relationship("Ratings")
-    stock = relationship("ProductStock")
-    classification = relationship("Classification")
-    product_feature = relationship("ProductFeatures")
+    #Many products can have One tax
+    tax = relationship("Taxes", back_populates="products")
+    #One product can have Many resources
+    resources = relationship("Resources", back_populates="product")
+    classifications = relationship("Classification")
+    product_stock = relationship("ProductStock")
     price_history = relationship("PriceHistory")
+    ratings = relationship("Ratings")
+    product_features = relationship("ProductFeatures")
+
+    

@@ -1,7 +1,6 @@
 from sqlalchemy import Column, String, Integer, Numeric, BINARY, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from sqlalchemy.orm import relationship
+from .sql_base import Base
 
 
 class OrderDetails(Base):
@@ -15,3 +14,8 @@ class OrderDetails(Base):
     )  # fk orders
     quantity = Column(BINARY, nullable=False)
     sale_price = Column(Numeric(precision=10, scale=2), nullable=False)
+
+    # Many order details can be from One order
+    order = relationship("Orders", back_populates="order_details")
+    # Many order details can have One product stock
+    product_stock = relationship("ProductStock", back_populates="order_details")
