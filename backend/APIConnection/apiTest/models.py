@@ -1,4 +1,17 @@
 from django.db import models
+from datetime import date
+class PriceHistory:
+    def __init__(self, id_price_history, start_date, end_date, price_actual):
+        self.id_price_history = id_price_history
+        self.start_date = start_date
+        self.end_date = end_date
+        self.price_actual = price_actual
+
+    def display_price_history(self):
+        print(f"ID: {self.id_price_history}")
+        print(f"Start Date: {self.start_date}")
+        print(f"End Date: {self.end_date}")
+        print(f"Price Actual: {self.price_actual}")
 
 class ProductTest:
     def __init__(self, prod_id, prod_name, prod_ref, release_date, prod_description):
