@@ -1,5 +1,88 @@
 from django.db import models
 from datetime import date
+
+
+class ProductResource:
+    def __init__(self, id_product_resource, product_length, product_width, product_height, product_weight,
+                 product_dimension):
+        self.id_product_resource = id_product_resource
+        self.product_length = product_length
+        self.product_width = product_width
+        self.product_height = product_height
+        self.product_weight = product_weight
+        self.product_dimension = product_dimension
+        self.product_url_resources = []
+
+    @property
+    def id_product_resource(self):
+        return self.id_product_resource
+
+    @id_product_resource.setter
+    def id_product_resource(self, value):
+        self.id_product_resource = value
+
+    @property
+    def product_length(self):
+        return self.product_length
+
+    @product_length.setter
+    def product_length(self, value):
+        self.product_length = value
+
+    @property
+    def product_width(self):
+        return self.product_width
+
+    @product_width.setter
+    def product_width(self, value):
+        self.product_width = value
+
+    @property
+    def product_height(self):
+        return self.product_height
+
+    @product_height.setter
+    def product_height(self, value):
+        self.product_height = value
+
+    @property
+    def product_weight(self):
+        return self.product_weight
+
+    @product_weight.setter
+    def product_weight(self, value):
+        self.product_weight = value
+
+    @property
+    def product_dimension(self):
+        return self.product_dimension
+
+    @product_dimension.setter
+    def product_dimension(self, value):
+        self.product_dimension = value
+
+    @property
+    def product_url_resources(self):
+        return self.product_url_resources
+
+    @product_url_resources.setter
+    def product_url_resources(self, value):
+        self.product_url_resources = value
+
+    def add_product_url_resource(self, value):
+        if value not in self.product_url_resources:
+            self.product_url_resources.append(value)
+        else:
+            print("Error: El URL resource ya existe en la lista.")
+
+    def remove_product_url_resource(self, value):
+        if value in self.product_url_resources:
+            self.product_url_resources.remove(value)
+
+    def __str__(self):
+        return f"Product ID: {self.id_product_resource}\nProduct Length: {self.product_length}\nProduct Width: {self.product_width}\nProduct Height: {self.product_height}\nProduct Weight: {self.product_weight}\nProduct Dimensions: {self.product_dimension}\nProduct URL Resources: {self.product_url_resources}"
+
+
 class PriceHistory:
     def __init__(self, id_price_history, start_date, end_date, price_actual):
         self.id_price_history = id_price_history
@@ -12,6 +95,7 @@ class PriceHistory:
         print(f"Start Date: {self.start_date}")
         print(f"End Date: {self.end_date}")
         print(f"Price Actual: {self.price_actual}")
+
 
 class ProductTest:
     def __init__(self, prod_id, prod_name, prod_ref, release_date, prod_description):
