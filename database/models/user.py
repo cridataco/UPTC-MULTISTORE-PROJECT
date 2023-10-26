@@ -26,6 +26,49 @@ class User(Base):
     def getOlderUserCreated(self, engine):
         with engine.connect() as connection:
             result = connection.execute(
+                text("SELECT * FROM users ORDER BY date_account_creation ASC LIMIT 1;")
+            )
+        return result.fetchone()
+
+    def getTotalUsers(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT COUNT(*) FROM users;")
+            )
+        return result.fetchone()
+    
+    def getNewestUser(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
                 text("SELECT * FROM users ORDER BY date_account_creation DESC LIMIT 1;")
+            )
+        return result.fetchone()
+    
+    def getClientsUsers(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT * FROM users WHERE is_client = 1;")
+            )
+        return result.fetchone()
+    
+    def getSpecifiedUserByUserName(self, engine, username):
+        with engine.connect() as connection:
+            result =  connection.execute(
+                text("SELECT * FROM users WHERE user_name = :username"), username=username
+            )
+        return result.fetchone()
+    
+    def getSpecifiedUserByEmail(self, engine, email):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT * FROM users WHERE email = :email"), email = email
+            )
+        return result.fetchone()
+    
+    #You must ensure that the 'date' parameter is in 'YYYY-MM-DD' format.
+    def getSpecifiedUserByCreationDate(self, engine, date):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT * FROM users WHERE date_account_creation = :date"), date = date
             )
         return result.fetchone()
