@@ -1,5 +1,46 @@
 from django.db import models
 from datetime import date
+
+
+
+#tener en cuenta que esta clase 'SubCategory' depende de ProductCategory para acceder a sus propiedades
+class ProductSubcategory:
+    def __init__(self, category, name_subcategory, description_subcategory):
+        self._category = category
+        self._name_subcategory = name_subcategory
+        self._description_subcategory = description_subcategory
+
+    @property
+    def category(self):
+        return self._category
+
+    @category.setter
+    def category(self, value):
+        self._category = value
+
+    @property
+    def name_subcategory(self):
+        return self._name_subcategory
+
+    @name_subcategory.setter
+    def name_subcategory(self, value):
+        self._name_subcategory = value
+
+    @property
+    def description_subcategory(self):
+        return self._description_subcategory
+
+    @description_subcategory.setter
+    def description_subcategory(self, value):
+        self._description_subcategory = value
+
+    def __str__(self):
+        return (
+            f"Subcategoria: {self.name_subcategory}\n"
+            f"Categoria: {self.category.name_category}\n"
+            f"Descripcion: {self.description_subcategory}\n"
+        )
+
 class PriceHistory:
     def __init__(self, id_price_history, start_date, end_date, price_actual):
         self.id_price_history = id_price_history
