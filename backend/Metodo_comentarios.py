@@ -37,13 +37,5 @@ def obtener_comentario(producto_id, usuario):
         return f"El usuario {usuario} no ha comentado en este producto"
 
 
-# Método para enviar comentarios a la Base de Datos, en caso que esta ya este vinculada.
-def enviar_comentarios_a_base_de_datos():
-    # Aquí se realizaría el envío a la base de datos.
-    pass
 
 
-# Método para recuperar comentarios de la Base de Datos, en caso que esta ya este vinculada.
-def recuperar_comentarios_de_base_de_datos():
-    # Aquí se realizaría la recuperación desde la base de datos.
-    pass

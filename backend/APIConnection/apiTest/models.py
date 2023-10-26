@@ -216,3 +216,39 @@ class Inventory:
                 del self.products[i]
                 return True
         return False
+
+
+
+class ProductFeature:
+    def __init__(self, id_feature, feature_name, feature_description):
+        self._id_feature = id_feature
+        self._feature_name = feature_name
+        self._feature_description = feature_description
+
+    @property
+    def id_feature(self):
+        return self._id_feature
+
+    @id_feature.setter
+    def id_feature(self, value):
+        self._id_feature = value
+
+    @property
+    def feature_name(self):
+        return self._feature_name
+
+    @feature_name.setter
+    def feature_name(self, value):
+        self._feature_name = value
+
+    @property
+    def feature_description(self):
+        return self._feature_description
+
+    @feature_description.setter
+    def feature_description(self, value):
+        self._feature_description = value
+
+    def __str__(self) -> str:
+        return f"ID de la característica: {self.id_feature}\nNombre de la característica: {self.feature_name}\nDescripción de la característica: {self.feature_description}"
+
