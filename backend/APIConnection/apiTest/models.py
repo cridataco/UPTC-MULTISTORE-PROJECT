@@ -23,6 +23,28 @@ class ProductTest:
         self._prod_key_words = []
         self._prod_ratings = []
 
+    class Admin:
+        def __init__(self, inventory):
+            self.inventory = inventory
+
+        def add_product(self, product):
+            self.inventory.add_product(product)
+
+        def get_product(self, prod_id):
+            return self.inventory.get_product(prod_id)
+
+        def update_product(self, prod_id, new_product):
+            return self.inventory.update_product(prod_id, new_product)
+
+        def delete_product(self, prod_id):
+            return self.inventory.delete_product(prod_id)
+
+        def update_price_history(self, price_history, new_price):
+            price_history.price_actual = new_price
+
+        def display_inventory(self):
+            for product in self.inventory.products:
+                print(product)
     @property
     def prod_id(self):
         return self._prod_id
