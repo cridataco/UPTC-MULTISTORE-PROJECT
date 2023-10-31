@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, Date, Numeric, ForeignKey
 from sqlalchemy.orm import relationship
 from .sql_base import Base
 
+
 class Orders(Base):
     __tablename__ = "orders"
 
@@ -16,9 +17,9 @@ class Orders(Base):
     id_address = Column(
         Integer, ForeignKey("shipping_address.id_address"), nullable=False
     )  # fk shipping_address
+    estimated_delivery_date = Column(Date, nullable=False)
     shipping_cost = Column(Numeric(precision=8, scale=2), nullable=True)
     order_note = Column(String(500), nullable=True)
-    estimated_delivery_date = Column(Date, nullable=False)
     completed_delivery_date = Column(Date, nullable=True)
 
     # Many orders can belong to One user
@@ -29,3 +30,21 @@ class Orders(Base):
     coupon = relationship("Coupons", back_populates="orders")
     ratings = relationship("Ratings")
     order_details = relationship("OrderDetails")
+
+    def __init__(
+        self,
+        order_date,
+        order_state,
+        payment_method,
+        estimated_delivey_date,
+        shipping_cost = None,
+        order_note = None,
+        completed_delivey_date = None
+    ):
+        self.order_date = order_date
+        self.order_state = order_state
+        self.payment_method = payment_method
+        self.estimated_delivery_date =  estimated_delivey_date
+        self.shipping_cost = shipping_cost
+        self.order_note = order_note
+        self.completed_delivery_date = completed_delivey_date

@@ -14,3 +14,9 @@ class PriceHistory(Base):
 
     # Many price history can be from One product
     product = relationship("Product", back_populates="price_history")
+
+
+    def __init__(self, start_date, finish_date, purchase_price = None):
+        self.start_date = start_date
+        self.finish_date = finish_date
+        self.purchase_price = purchase_price

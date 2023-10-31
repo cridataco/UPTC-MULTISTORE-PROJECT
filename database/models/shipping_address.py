@@ -21,3 +21,15 @@ class ShippingAddress(Base):
     # Many shipping addresses can be from One user
     user = relationship("User", back_populates="shipping_addresses")
     orders = relationship("Orders")
+
+    def __init__(
+        self,
+        shipping_address,
+        shipment_receiver_name,
+        receiver_phone=None,
+        address_details=None,
+    ):
+        self.shipping_address = shipping_address
+        self.shipment_receiver_name = shipment_receiver_name
+        self.receiver_phone = receiver_phone
+        self.address_details = address_details

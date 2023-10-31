@@ -31,15 +31,29 @@ Base.metadata.create_all(engine)
 # Crear una sesion
 Session = sessionmaker(bind=engine)
 session = Session()
-
 # Consultas
 
-# Consulta con User
-# Va a dar error, porque la tabla esta vacia, y aún no hay consulta para agregar un nuevo usuario
 """
-user_test = user.User()
-user_test.getOlderUserCreated(engine)
+#taxes.Taxes.create_tax(session=session, tax_value=10)
+tax_readed : taxes.Taxes= taxes.Taxes.read_tax(session=session,tax_id=1)
+print(f"ID: {tax_readed.id_tax} - Valor: {tax_readed.tax_value}")
 """
+men= user.User(
+    id_platform="as",
+    email="correo",
+    user_name="nombre",
+    birthdate= "2001-12-11",
+    document_number="numero",
+    document_type=1,
+    is_client=2,
+    cell_phone_number="as",
+    user_rol="asd",
+    user_permissions="admin",
+    date_account_creation="2001-12-11"
+)
+
+user.User.create_user(cls=men, session=session)
+
 
 # Cerrar la sesión
 session.close()

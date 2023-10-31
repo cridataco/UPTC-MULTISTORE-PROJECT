@@ -17,3 +17,19 @@ class Coupons(Base):
 
     # One coupon can be used for Many orders
     orders = relationship("Orders", back_populates="coupon")
+
+    def __init__(
+        self,
+        coupon_code,
+        discount,
+        creation_date,
+        redeeming_date,
+        due_date,
+        restrictions,
+    ):
+        self.coupon_code = coupon_code
+        self.discount = discount
+        self.creation_date = creation_date
+        self.redeeming_date = redeeming_date
+        self.due_date = due_date
+        self.restrictions = restrictions

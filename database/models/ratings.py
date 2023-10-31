@@ -17,8 +17,22 @@ class Ratings(Base):
     rating_date = Column(Date, nullable=False)
     rating_edit_date = Column(Date, nullable=True)
     rating_elimination_date = Column(Date, nullable=True)
-    
-    #Many ratings can be for One order
+
+    # Many ratings can be for One order
     order = relationship("Orders", back_populates="ratings")
-    #Many ratings can be for One product
+    # Many ratings can be for One product
     product = relationship("Product", back_populates="ratings")
+
+    def __init__(
+        self,
+        rating,
+        comment,
+        rating_date,
+        rating_edit_date=None,
+        rating_elimination_date=None,
+    ):
+        self.rating = rating
+        self.comment = comment
+        self.rating_date = rating_date
+        self.rating_edit_date = rating_edit_date
+        self.rating_elimination_date = rating_elimination_date

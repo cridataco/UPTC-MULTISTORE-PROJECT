@@ -19,3 +19,8 @@ class OrderDetails(Base):
     order = relationship("Orders", back_populates="order_details")
     # Many order details can have One product stock
     product_stock = relationship("ProductStock", back_populates="order_details")
+
+
+    def __init__(self, quantity, sale_price):
+        self.quantity = quantity
+        self.sale_price = sale_price

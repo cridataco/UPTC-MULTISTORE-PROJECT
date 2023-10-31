@@ -14,7 +14,11 @@ class ProductFeatures(Base):
     )  # fk features
     feature_value = Column(String(30), nullable=True)
 
-    #Many product features can be from One product
+    # Many product features can be from One product
     product = relationship("Product", back_populates="product_features")
-    #Many product features can be One feature
+    # Many product features can be One feature
     feature = relationship("Features", back_populates="product_features")
+
+
+    def __init__(self, feature_value=None):
+        self.feature_value = feature_value
