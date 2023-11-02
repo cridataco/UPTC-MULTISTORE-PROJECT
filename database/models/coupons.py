@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Numeric, Date
+from sqlalchemy import Column, Integer, String, Numeric, Date, text
 from sqlalchemy.orm import relationship
 from .sql_base import Base
 
@@ -33,3 +33,58 @@ class Coupons(Base):
         self.redeeming_date = redeeming_date
         self.due_date = due_date
         self.restrictions = restrictions
+
+    def create_cupon(cls, session):
+        session.add(cls)
+        session.commit()
+        return cls    
+
+    def getOlderCouponCreated(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_coupon, coupon_code FROM coupons ORDER BY creation_date ASC LIMIT 1;")
+            )
+        return result.fetchone() 
+
+    def getOlderCouponDue(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_coupon, coupon_code FROM coupons ORDER BY due_date ASC LIMIT 1;")
+            )
+        return result.fetchone()     
+
+    def getTotalCoupons(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT COUNT(id_coupon) FROM coupons;")
+            )
+        return result.fetchone()  
+
+    def getRestrictionCupon(self, engine, id_coupon):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT restrictions FROM coupons WHERE id_coupon = :id_coupon"), id_coupon = id_coupon
+            )
+        return result.fetchone()  
+
+
+    def getSpecifiedCouponByCreationDate(self, engine, due_date):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_coupon, coupon_code FROM coupons WHERE due_date = :date"), due_date = due_date
+            )
+        return result.fetchone()             
+
+    def getCouponWithDiscount(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_coupon, coupon_code FROM coupons WHERE discount IS NOT NULL;")
+            )
+        return result.fetchone() 
+
+    def getCouponWithoutDiscount(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_coupon, coupon_code FROM coupons WHERE discount IS NULL;")
+            )
+        return result.fetchone()     

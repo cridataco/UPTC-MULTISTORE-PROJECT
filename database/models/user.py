@@ -58,9 +58,6 @@ class User(Base):
         session.commit()
         return cls
 
-    
-
-
     # Query Select OlderUser
     def getOlderUserCreated(self, engine):
         with engine.connect() as connection:
