@@ -1,5 +1,7 @@
-from sqlalchemy import Column, Integer, String, Date, ForeignKey
+from sqlalchemy import Column, Integer, String, Date, ForeignKey, text
 from sqlalchemy.orm import relationship
+from sqlalchemy.orm.session import Session
+from sqlalchemy.exc import NoResultFound
 from .sql_base import Base
 
 
@@ -43,3 +45,59 @@ class Product(Base):
         self.creation_date = creation_date
         self.key_words = key_words
         self.product_link = product_link
+
+    #Query para crear producto
+    def create_product(cls, session):
+        session.add(cls)
+        session.commit()
+        return cls    
+
+    #Query para obtener productos
+    def getProductsCreated(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_product, product_name FROM product;")
+            )
+        return result.fetchone() 
+
+    #Query para obtener el primer producto creado (el más viejo)
+    def getOlderCouponCreated(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_product, product_name FROM product ORDER BY creation_date ASC LIMIT 1;")
+            )
+        return result.fetchone() 
+
+    #Query para obtener el primer producto lanzado (el más viejo)
+    def getOlderCouponDue(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_product, product_name FROM product ORDER BY release_date ASC LIMIT 1;")
+            )
+        return result.fetchone()     
+
+    #Query para obtener el total de productos
+    def getTotalCoupons(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT COUNT(id_product) FROM coupons;")
+            )
+        return result.fetchone()  
+
+    #Query para obtener las clasificaciones
+    def getRestrictionCupon(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT DISTINCT classifications FROM product;")
+            )
+        return result.fetchone()  
+
+    #Query para borrar producto
+    def deleteUser(session : Session, id_product):
+        try:
+            obj_to_del = session.query(Product).filter_by(id_product=id_product).one()
+            session.delete(obj_to_del)
+            session.commit()
+            return True
+        except NoResultFound:
+            return False    

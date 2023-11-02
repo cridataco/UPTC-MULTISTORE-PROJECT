@@ -106,6 +106,22 @@ class User(Base):
             )
         return result.fetchone()
     
+    #Query obtener el usuario qué más productos ha comprado 
+    def getSpecifiedUserByEmail(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_user, user_name, COUNT (product.id_product) AS quantity_products FROM users INNER JOIN orders ON users.id_user = orders.id_user INNER JOIN order_details ON orders.id_order = order_details.id_order INNER JOIN product_stock ON order_details.SKU = product_stock.SKU INNER JOIN product ON order_details.id_product = product.id_product GROUP BY id_user, user_name ORDER BY quantity_products DESC LIMIT 1")
+            )
+        return result.fetchone()
+    
+    #Query obtener usuario que menos productos ha comprado
+    def getSpecifiedUserByEmail(self, engine):
+        with engine.connect() as connection:
+            result = connection.execute(
+                text("SELECT id_user, user_name, COUNT (product.id_product) AS quantity_products FROM users INNER JOIN orders ON users.id_user = orders.id_user INNER JOIN order_details ON orders.id_order = order_details.id_order INNER JOIN product_stock ON order_details.SKU = product_stock.SKU INNER JOIN product ON order_details.id_product = product.id_product GROUP BY id_user, user_name ORDER BY quantity_products ASC LIMIT 1")
+            )
+        return result.fetchone()
+    
     #Query Select User by date_account_creation
     #You must ensure that the 'date' parameter is in 'YYYY-MM-DD' format.
     def getSpecifiedUserByCreationDate(self, engine, date):
