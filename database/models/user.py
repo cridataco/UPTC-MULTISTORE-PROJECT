@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, String, Date, text
 from sqlalchemy.orm import relationship
 from .sql_base import Base
 
-
 class User(Base):
     __tablename__ = "users"
 
@@ -51,16 +50,12 @@ class User(Base):
         self.date_account_creation = date_account_creation
         self.date_account_deletion = date_account_deletion
 
-
     # Query Create User
     def create_user(cls, session):
         session.add(cls)
         session.commit()
         return cls
-
     
-
-
     # Query Select OlderUser
     def getOlderUserCreated(self, engine):
         with engine.connect() as connection:
@@ -138,9 +133,3 @@ class User(Base):
                                             WHERE QUANTITY = (SELECT MAX(QUANTITY) FROM ORDER_DETAILS));""")
             )
         return result.fetchone()
-    
-    #Query to get the most purchased product by a user
-    #TODO: add query
-    
-    #Query to get the most purchased product for all time
-    #TODO: add query
