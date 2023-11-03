@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, String, Date, text
 from sqlalchemy.orm import relationship
 from .sql_base import Base
 
-
 class User(Base):
     __tablename__ = "users"
 
@@ -51,21 +50,19 @@ class User(Base):
         self.date_account_creation = date_account_creation
         self.date_account_deletion = date_account_deletion
 
-
     # Query Create User
     def create_user(cls, session):
         session.add(cls)
         session.commit()
         return cls
-
     
-
-
     # Query Select OlderUser
     def getOlderUserCreated(self, engine):
         with engine.connect() as connection:
             result = connection.execute(
-                text("SELECT * FROM users ORDER BY date_account_creation ASC LIMIT 1;")
+                text("""SELECT * FROM users 
+                        ORDER BY date_account_creation 
+                        ASC LIMIT 1;""")
             )
         return result.fetchone()
 
@@ -81,7 +78,9 @@ class User(Base):
     def getNewestUser(self, engine):
         with engine.connect() as connection:
             result = connection.execute(
-                text("SELECT * FROM users ORDER BY date_account_creation DESC LIMIT 1;")
+                text("""SELECT * FROM users 
+                        ORDER BY date_account_creation 
+                        DESC LIMIT 1;""")
             )
         return result.fetchone()
     
@@ -89,7 +88,8 @@ class User(Base):
     def getClientsUsers(self, engine):
         with engine.connect() as connection:
             result = connection.execute(
-                text("SELECT * FROM users WHERE is_client = 1;")
+                text("""SELECT * FROM users 
+                        WHERE is_client = 1;""")
             )
         return result.fetchone()
     
@@ -97,7 +97,8 @@ class User(Base):
     def getSpecifiedUserByUserName(self, engine, username):
         with engine.connect() as connection:
             result =  connection.execute(
-                text("SELECT * FROM users WHERE user_name = :username"), username=username
+                text("""SELECT * FROM users 
+                        WHERE user_name = :username"""), username=username
             )
         return result.fetchone()
     
@@ -105,7 +106,8 @@ class User(Base):
     def getSpecifiedUserByEmail(self, engine, email):
         with engine.connect() as connection:
             result = connection.execute(
-                text("SELECT * FROM users WHERE email = :email"), email = email
+                text("""SELECT * FROM users 
+                        WHERE email = :email"""), email = email
             )
         return result.fetchone()
     
@@ -114,6 +116,20 @@ class User(Base):
     def getSpecifiedUserByCreationDate(self, engine, date):
         with engine.connect() as connection:
             result = connection.execute(
-                text("SELECT * FROM users WHERE date_account_creation = :date"), date = date
+                text("""SELECT * FROM users 
+                        WHERE date_account_creation = :date"""), date = date
+            )
+        return result.fetchone()
+    
+    #Query to get the user with the most products purchased
+    def getUserWithMostProducts(self, engine):
+        with engine.connetc() as connection:
+            result = connection.execute(
+                text("""SELECT id_user, user_name
+                        FROM users u, orders o, order_details od
+                        WHERE u.id_user = o.id_user 
+                        AND od.id_order = o.id_order
+                        AND od.id_order = (SELECT ID_ORDER FROM ORDER_DETAILS
+                                            WHERE QUANTITY = (SELECT MAX(QUANTITY) FROM ORDER_DETAILS));""")
             )
         return result.fetchone()
