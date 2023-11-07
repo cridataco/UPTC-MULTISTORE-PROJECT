@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #D9E0DC;
+}
+
+
+/* Estilos CSS para la barra de navegación */
+.navbar {
+    background-color: #227873; /* Cambia el color de fondo según tus preferencias */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos CSS para la barra de búsqueda */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white; /* Agrega un fondo blanco a la barra de búsqueda */
+    padding: 8px; /* Agrega relleno para separar el contenido de los bordes */
+    border-radius: 25px;
+}
+
+.search-container input[type="text"] {
+    padding: 0; /* Quita el relleno del input */
+    font-size: 17px;
+    border: none;
+    margin-right: 5px;
+    height: 36px;
+    width: 600px; /* Ajusta el ancho de la barra de búsqueda según tus necesidades */
+    outline: none;
+}
+
+.search-container button {
+    padding: 0; /* Quita el relleno para ajustar el tamaño del botón a la imagen */
+    background: none; /* Quita el fondo del botón */
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilos CSS para los botones cuadrados */
+.square-buttons {
+    display: flex;
+}
+
+.square-buttons a {
+    display: inline-block; /* Hace que los enlaces sean elementos en bloque */
+    margin-right: 5px;
+    border: none; /* Quita el borde gris */
+    border-radius: 0; /* Quita el borde redondeado */
+    text-decoration: none; /* Quita el subrayado predeterminado de los enlaces */
+}
+
+.square-buttons a img {
+    width: 50px; /* Ancho ajustado */
+    height: 50px; /* Alto ajustado */
+    width: 100%; /* Haz que la imagen ocupe el 100% del enlace */
+}
+
+/* Estilos CSS para el logo */
+.logo {
+    width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
+}
+
+/* Estilos CSS para los enlaces */
+.links {
+    background-color: #227873;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    padding: 10px 0;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px; /* Espacio hacia los lados izquierdo y derecho */
+}
+
+.top-rectangle-container {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 700px; /* Ancho deseado */
+    height: 60px; /* Alto deseado */
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.top-rectangle p {
+    font-size: 14px;
+}
+
+.select-button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+.select-container {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px; /* Esto añade un espacio entre el texto y el botón, ajusta según tus preferencias */
+}
+
+
+
+.bottom-rectangle {
+    font-family: 'Raleway', sans-serif;
+    width: 700px; /* Ancho deseado */
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.product-image img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.product-details {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 20px;
+
+}
+.title {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 50px;
+    margin-top: 50px;
+    font-size: 20px
+}
+
+.green-text {
+    color: #227873;
+}
+
+.color-sample {
+    width: 20px;
+    height: 20px;
+    background-color: #572278; /* Personaliza el color del producto */
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.small-text {
+    font-size: 12px;
+}
+
+.total-price {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-button {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.delete-button {
+    width: 50px;
+    height: 50px;
+    background-image: url("resources/caneca.jpg"); /* Agrega la imagen de la caneca */
+    background-size: cover;
+    border: none;
+}
+.new-rectangle {
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 600px; /* Ancho deseado */
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    border: none;
+
+}
+
+.new-rectangle p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    margin-bottom: 20px;
+}
+
+label {
+    color: #888; /* Color gris suave */
+    text-decoration: underline; /* Subrayado */
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+button.search-button {
+    background-color: #227873;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.payment-section {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 50px;
+    border: none;
+}
+
+.payment-section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.payment-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.payment-button {
+    border: 1px solid #227873; /* Borde verde */
+    border-radius: 5px;
+    padding: 5px; /* Reduzcamos el espacio de relleno para que los botones sean más pequeños */
+    cursor: pointer;
+    width: 200px; /* Ancho reducido */
+    height: 100px; /* Alto reducido */
+}
+
+.payment-button img {
+    width: 100%; /* Ajusta el tamaño de la imagen al 100% del botón */
+    height: 100%;
+}
+
+.total {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pay-now-button {
+    background-color: #227873;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+   
+}
+
+.pay-now-button:hover {
+    background-color: #1b5d61; /* Cambio de color al pasar el mouse */
+}
+
+.security-text {
+    font-size: 16px;
+    color: #227873;
+}
+
+.content-container {
+    float: left; /* Hace que el contenedor de contenido flote a la izquierda */
+    width: 70%; /* Ancho del contenedor principal */
+}
+
+.payment-section {
+    float: left; /* Hace que el rectángulo de pago flote a la izquierda */
+    width: 30%; /* Ancho del rectángulo de pago */
+    /* El resto de estilos para el rectángulo de pago */
+}
+.main-container {
+    display: flex;
+}
+
+.content-container {
+    flex: 70%;
+    /* Estilos para los tres rectángulos acostados */
+}
+
+.payment-section {
+    flex: 30%;
+    /* Estilos para el rectángulo de pago */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#epayco-popup {
+    background-image: url('images/epayco_fondo.webp'); /* Ruta a tu imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen de fondo */
+    background-size: 100%;
+    background-color: #f0f0f0; /* Fondo de respaldo en caso de que la imagen no se cargue */
+    border: 1px solid #ddd; /* Borde del pop-up */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 20px;
+    width: 30%; /* Ancho del pop-up (puedes ajustarlo según tus preferencias) */
+    margin: 10% 30%; /* Centrar vertical y horizontalmente */
+    max-height: 40vh; /* Altura máxima del pop-up (ajusta según lo "más corto" que desees) */
+    
+}
+
+.epayco-payment-form h2 {
+    font-size: 2em; /* Tamaño del título */
+    text-align: center;
+    margin-bottom: 250px; /* Espacio entre el título y el formulario */
+    color: #fff;
+}
+
+.epayco-payment-form {
+    text-align: center;
+}
+
+.epayco-button {
+    border: 1px solid #227873; /* Borde verde similar al botón de Nequi */
+    border-radius: 5px;
+    padding: 5px; /* Reduzcamos el espacio de relleno para que los botones sean más pequeños */
+    cursor: pointer;
+    background-color: white; /* Color de fondo */
+    text-align: center; /* Alineación de texto al centro */
+    margin: 0 auto;
+}
+
+.epayco-button img {
+    width: 100%; /* Ajusta el tamaño de la imagen al 100% del botón */
+    height: 100%;
+}
+
+.epayco-button:hover {
+    background-color: #1b5d61; /* Cambio de color al pasar el mouse, similar al botón de Nequi */
+    color: white; /* Cambio de color del texto al pasar el mouse */
+}
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Un fondo semitransparente gris oscuro */
+    z-index: 999; /* Asegura que el fondo esté sobre todo lo demás */
+}
+
+/* Estilos para el formulario de Nequi */
+#nequi-popup {
+    background-image: url('images/nequi_fondo.webp'); /* Ruta a tu imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen de fondo */
+    background-size: 40%;
+    background-color: #f0f0f0; /* Fondo de respaldo en caso de que la imagen no se cargue */
+    border: 1px solid #ddd; /* Borde del pop-up */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 20px;
+    width: 30%; /* Ancho del pop-up (puedes ajustarlo según tus preferencias) */
+    margin: 10% 30%; /* Centrar vertical y horizontalmente */
+    max-height: 40vh; /* Altura máxima del pop-up (ajusta según lo "más corto" que desees) */
+    
+}
+
+.nequi-payment-form h2 {
+    font-size: 2em; /* Tamaño del título */
+    text-align: center;
+    margin-bottom: 60px; /* Espacio entre el título y el formulario */
+}
+
+/* Estilos para el campo de número de teléfono */
+.nequi-payment-form label {
+    font-size: 2em;
+    display: block;
+    color: #000;
+    background-color: aliceblue;
+}
+
+.nequi-payment-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón de enviar notificación */
+.nequi-payment-form button {
+    background-color: #007bff; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nequi-payment-form button:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el cursor sobre el botón */
+}
+
+
