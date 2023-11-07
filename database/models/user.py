@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Date, text
+from sqlalchemy import Column, Integer, String, Date
 from sqlalchemy.orm import relationship
 from .sql_base import Base
 
@@ -35,8 +35,10 @@ class User(Base):
         user_rol,
         user_permissions,
         date_account_creation,
+        id_user =None,
         date_account_deletion=None
     ):
+        self.id_user = id_user
         self.id_platform = id_platform
         self.email = email
         self.user_name = user_name
@@ -50,102 +52,17 @@ class User(Base):
         self.date_account_creation = date_account_creation
         self.date_account_deletion = date_account_deletion
 
-    # Query Create User
-    def create_user(cls, session):
-        session.add(cls)
-        session.commit()
-        return cls
 
-    # Query Select OlderUser
-    def getOlderUserCreated(self, engine):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("""SELECT * FROM users 
-                        ORDER BY date_account_creation 
-                        ASC LIMIT 1;""")
-            )
-        return result.fetchone()
-
-    # Query Count Users
-    def getTotalUsers(self, engine):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("SELECT COUNT(*) FROM users;")
-            )
-        return result.fetchone()
-    
-    # Query Select NewestUser
-    def getNewestUser(self, engine):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("""SELECT * FROM users 
-                        ORDER BY date_account_creation 
-                        DESC LIMIT 1;""")
-            )
-        return result.fetchone()
-    
-    # Query Clients Users
-    def getClientsUsers(self, engine):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("""SELECT * FROM users 
-                        WHERE is_client = 1;""")
-            )
-        return result.fetchone()
-    
-    # Query Select User By username 
-    def getSpecifiedUserByUserName(self, engine, username):
-        with engine.connect() as connection:
-            result =  connection.execute(
-                text("""SELECT * FROM users 
-                        WHERE user_name = :username"""), username=username
-            )
-        return result.fetchone()
-    
-    # Query Select User By email
-    def getSpecifiedUserByEmail(self, engine, email):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("""SELECT * FROM users 
-                        WHERE email = :email"""), email = email
-            )
-        return result.fetchone()
-    
-    #Query obtener el usuario qué más productos ha comprado 
-    def getSpecifiedUserByEmail(self, engine):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("SELECT id_user, user_name, COUNT (product.id_product) AS quantity_products FROM users INNER JOIN orders ON users.id_user = orders.id_user INNER JOIN order_details ON orders.id_order = order_details.id_order INNER JOIN product_stock ON order_details.SKU = product_stock.SKU INNER JOIN product ON order_details.id_product = product.id_product GROUP BY id_user, user_name ORDER BY quantity_products DESC LIMIT 1")
-            )
-        return result.fetchone()
-    
-    #Query obtener usuario que menos productos ha comprado
-    def getSpecifiedUserByEmail(self, engine):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("SELECT id_user, user_name, COUNT (product.id_product) AS quantity_products FROM users INNER JOIN orders ON users.id_user = orders.id_user INNER JOIN order_details ON orders.id_order = order_details.id_order INNER JOIN product_stock ON order_details.SKU = product_stock.SKU INNER JOIN product ON order_details.id_product = product.id_product GROUP BY id_user, user_name ORDER BY quantity_products ASC LIMIT 1")
-            )
-        return result.fetchone()
-    
-    #Query Select User by date_account_creation
-    #You must ensure that the 'date' parameter is in 'YYYY-MM-DD' format.
-    def getSpecifiedUserByCreationDate(self, engine, date):
-        with engine.connect() as connection:
-            result = connection.execute(
-                text("""SELECT * FROM users 
-                        WHERE date_account_creation = :date"""), date = date
-            )
-        return result.fetchone()
-    
-    #Query to get the user with the most products purchased
-    def getUserWithMostProducts(self, engine):
-        with engine.connetc() as connection:
-            result = connection.execute(
-                text("""SELECT id_user, user_name
-                        FROM users u, orders o, order_details od
-                        WHERE u.id_user = o.id_user 
-                        AND od.id_order = o.id_order
-                        AND od.id_order = (SELECT ID_ORDER FROM ORDER_DETAILS
-                                            WHERE QUANTITY = (SELECT MAX(QUANTITY) FROM ORDER_DETAILS));""")
-            )
-        return result.fetchone()
+    def printUser(user):
+        print(f"User ID: {user.id_user}")
+        print(f"Platform ID: {user.id_platform}")
+        print(f"Email: {user.email}")
+        print(f"User Name: {user.user_name}")
+        print(f"Birthdate: {user.birthdate}")
+        print(f"Document Number: {user.document_number}")
+        print(f"Document Type: {user.document_type}")
+        print(f"Is Client: {user.is_client}")
+        print(f"Cell Phone Number: {user.cell_phone_number}")
+        print(f"User Role: {user.user_rol}")
+        print(f"User Permissions: {user.user_permissions}")
+        print(f"Date Account Creation: {user.date_account_creation}")
