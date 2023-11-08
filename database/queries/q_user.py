@@ -223,7 +223,7 @@ def setDateAccountDeletion(session: Session, id_user, date_account_deletion):
 
 # Query Count Users
 def getTotalUsers(session: Session):
-    return session.query(User).count()
+    return session.query(User.id_user).count()
 
 
 # Query Select Older user created

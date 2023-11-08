@@ -9,6 +9,7 @@ class User(Base):
     id_platform = Column(String(15), nullable=False, unique=True)
     email = Column(String(100), nullable=False, unique=True)
     user_name = Column(String(30), nullable=False)
+    jwt_tokken = Column(String(150), nullable=False, unique=True)
     birthdate = Column(Date, nullable=False)
     document_number = Column(String(11), nullable=False, unique=True)
     document_type = Column(Integer, nullable=False)
@@ -27,6 +28,7 @@ class User(Base):
         id_platform,
         email,
         user_name,
+        jwt_tokken,
         birthdate,
         document_number,
         document_type,
@@ -42,6 +44,7 @@ class User(Base):
         self.id_platform = id_platform
         self.email = email
         self.user_name = user_name
+        self.jwt_tokken = jwt_tokken
         self.birthdate = birthdate
         self.document_number =  document_number
         self.document_type = document_type
