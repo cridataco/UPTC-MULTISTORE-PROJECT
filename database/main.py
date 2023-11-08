@@ -1,23 +1,14 @@
 from db_connection import session
-
-from models.categories import Categories
-from models.classification import Classification
-from models.coupons import Coupons
-from models.features import Features
-from models.order_details import OrderDetails
-from models.orders import Orders
-from models.places import Places
-from models.price_history import PriceHistory
-from models.product_features import ProductFeatures
-from models.product_stock import ProductStock
-from models.product import Product
-from models.ratings import Ratings
-from models.resources import Resources
-from models.shipping_address import ShippingAddress
-from models.taxes import Taxes
 from models.user import User
 from queries import q_user
 
+"""
+Aqui importar los modulos necesarios para realizar pruebas
+Inicialmente importa tabla:user ya que es la tabla más avanzada
+    Ej: from models.(tabla) import (Clase)
+    Ej: from queries import q_(tabla)
+El resto de tablas necesita algunos ajustes y reorganización en las queries
+"""
 
 # Consultas
 
@@ -47,12 +38,13 @@ men2 = User(
     user_permissions="admin",
     date_account_creation="2023-08-11",
 )
+
 # Create user
-# q_user.createUser(session=session, user=men)
+q_user.createUser(session=session, user=men)
 # q_user.createUser(session=session, user=men2)
 
 # Get User
-#q_user.getUserByIdUser(session=session, id_user=12).printUser()
+# q_user.getUserByIdUser(session=session, id_user=12).printUser()
 
 # Delete user
 # print(q_user.deleteUser(session=session, id_user=14))
