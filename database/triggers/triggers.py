@@ -1,37 +1,27 @@
+from sqlalchemy import create_engine, text, event
+from sqlalchemy.orm import sessionmaker
 
-import mysql.connector
+# Configura tu conexión a la base de datos con SQLAlchemy
+DB_URI = "mysql+mysqlconnector://usuario:contraseña@localhost/nombre_basedatos"
+engine = create_engine(DB_URI)
 
-# Conectar a la base de datos
-conn = mysql.connector.connect( #coneccion a la base de datos
-    host="tu_host",
-    user="tu_usuario", 
-    password="tu_contraseña",
-    database="tu_base_de_datos"
-)
-
-# Crear un cursor
-cursor = conn.cursor()
-
-# Crear el procedimiento almacenado
+# Crear el procedimiento almacenado con SQLAlchemy
 create_procedure_query = """
-DELIMITER //
-
 CREATE PROCEDURE GenerateDispatchReport()
 BEGIN
     SELECT *
     FROM orders
-    WHERE state = 'Pending' -- no enviado aun
+    WHERE state = 'Pending'
     AND DATE(delivery_date) = CURDATE(); 
-END //
-
-DELIMITER ;
+END;
 """
-#la funcion CURDATE() devuelve la fecha actual del en el formato 'YYYY-MM-DD'. tambien se puede usar SYSdate.
 
-cursor.execute(create_procedure_query)
+# Ejecuta el comando SQL
+with engine.connect() as connection:
+    connection.execute(text(create_procedure_query))
 
-# Crear el evento (trigger)
-create_pedidos_query = """
+# Crear el evento (trigger) con SQLAlchemy
+create_event_query = """
 CREATE EVENT IF NOT EXISTS DailyDispatchReport
 ON SCHEDULE EVERY 1 DAY
 DO
@@ -40,38 +30,33 @@ BEGIN
 END;
 """
 
-cursor.execute(create_pedidos_query)
+# Ejecuta el comando SQL
+with engine.connect() as connection:
+    connection.execute(text(create_event_query))
 
-# Confirmar los cambios y cerrar la conexión
-conn.commit()
-conn.close()
-
-from sqlalchemy import text
-from sqlalchemy import create_engine
-
-# Configura tu conexión a la base de datos
-DB_URI = "mysql+mysqlconnector://usuario:contraseña@localhost/nombre_basedatos"
-engine = create_engine(DB_URI)
-
-# TRIGGER PARA prevenir eliminar un usuario si no es administrador
+# TRIGGER PARA prevenir eliminar un usuario si no es administrador con SQLAlchemy
 trigger_prevent_delete_admin = """
 CREATE TRIGGER prevent_delete_admin
 BEFORE DELETE ON users
 FOR EACH ROW
 BEGIN
-    IF users.is_client = 2 THEN SIGNAL SQLSTATE '45000' 
-    SET MESSAGE_TEXT = 'No se puede eliminar un administrador';
+    IF OLD.is_client = 2 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'No se puede eliminar un administrador';
     END IF;
-END;  
+END;
 """
+
 # Ejecuta el comando SQL
 with engine.connect() as connection:
     connection.execute(text(trigger_prevent_delete_admin))
 
-# TRIGGER PARA prevenir eliminar un usuario si no es administrador
+# TRIGGER PARA prevenir agregar usuario fuera del horario permitido con SQLAlchemy
 trigger_add_user_in_specific_time = """
 CREATE TRIGGER insert_user_in_specifi_time
 BEFORE INSERT ON users
+FOR EACH ROW
+BEGIN
     DECLARE hora_actual TIME;
     SET hora_actual = CURRENT_TIME();
 
@@ -79,12 +64,14 @@ BEFORE INSERT ON users
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'No se pueden agregar usuarios fuera del horario permitido (8 a.m. - 8 p.m)';
     END IF;
-END;  
+END;
 """
+
 # Ejecuta el comando SQL
 with engine.connect() as connection:
     connection.execute(text(trigger_add_user_in_specific_time))
 
+# TRIGGER PARA notificar bajo stock con SQLAlchemy
 trigger_low_stock_notification = """
 CREATE TRIGGER low_stock_notification
 AFTER UPDATE ON product_stock
@@ -96,7 +83,19 @@ BEGIN
     END IF;
 END;
 """
+
 # Ejecuta el comando SQL
 with engine.connect() as connection:
     connection.execute(text(trigger_low_stock_notification))
 
+# Utilizando eventos SQLAlchemy para simular TRIGGERS
+@event.listens_for(engine, "before_cursor_execute")
+def before_cursor_execute(conn, cursor, statement, parameters, context, executemany):
+    if "prevent_delete_admin" in statement:
+        raise Exception("No se puede eliminar un administrador")
+
+# Puedes agregar más eventos según sea necesario para otros TRIGGERS
+
+# Ahora puedes utilizar SQLAlchemy normalmente para interactuar con la base de datos
+Session = sessionmaker(bind=engine)
+session = Session()
