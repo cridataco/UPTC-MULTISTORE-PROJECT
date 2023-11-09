@@ -16,6 +16,7 @@ men = User(
     id_platform="451",
     email="hector4@gmail.com",
     user_name="Hector",
+    jwt_tokken="mypass",
     birthdate="2004-04-11",
     document_number="105555555",
     document_type=2,
@@ -29,6 +30,7 @@ men2 = User(
     id_platform="lols",
     email="rakan@lg.co",
     user_name="rakan1",
+    jwt_tokken="rak12",
     birthdate="2004-12-13",
     document_number="1231231",
     document_type=2,
@@ -40,11 +42,11 @@ men2 = User(
 )
 
 # Create user
-q_user.createUser(session=session, user=men)
+# q_user.createUser(session=session, user=men)
 # q_user.createUser(session=session, user=men2)
 
 # Get User
-# q_user.getUserByIdUser(session=session, id_user=12).printUser()
+# q_user.getUserByIdUser(session=session, id_user=1).printUser()
 
 # Delete user
 # print(q_user.deleteUser(session=session, id_user=14))
