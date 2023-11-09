@@ -269,7 +269,7 @@ def getTheMostProductsPurchased(session: Session):
             WHERE QUANTITY = (SELECT MAX(QUANTITY) FROM ORDER_DETAILS));"""
     )
     # Falta probarlas
-    result = session.execute(qqqqqq)
+    result = session.execute(query)
     return rowToUser(result.fetchone())
 
 
@@ -286,7 +286,7 @@ def getTheFewestProductsPurchased(session: Session):
             ORDER BY quantity_products ASC LIMIT 1;"""
     )
     # Falta probarla
-    result = session.execute(qqqq)
+    result = session.execute(query)
     return rowToUser(result.fetchone())
 
 
