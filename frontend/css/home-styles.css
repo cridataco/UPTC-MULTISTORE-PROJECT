@@ -1,0 +1,262 @@
+/* Reset y estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Variables de colores */
+:root {
+    --main-color: rgba(34, 120, 115, 1);
+    --back-color: rgba(238, 238, 238, 1);
+    --color-inputs: rgba(170, 170, 170, 1);
+    --color-text: rgba(0, 0, 0, 1);
+}
+
+/* Estilos del cuerpo del documento */
+body {
+    background-color: var(--back-color);
+}
+
+/* Estilos de la cabecera */
+header {
+    width: 100%;
+    min-width: 320px;
+    position: sticky;
+    top: 0;
+    background-color: var(--main-color);
+    z-index: 999;
+    box-shadow: 0px 5px 5px 0px rgba(30, 120, 116, 0.5);
+}
+
+/* Estilos de la barra de herramientas */
+.tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+}
+
+/* Estilos del logotipo */
+.logo {
+    background-image: url();
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Estilos de la barra de búsqueda */
+.search-bar {
+    width: 50%;
+    background-color: var(--back-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 90%;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-inputs);
+    color: var(--color-text);
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+/* Estilos de los botones */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--back-color);
+}
+
+/* Estilos del menú */
+menu ul {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+menu ul li {
+    color: var(--back-color);
+}
+
+/* Estilos de las etiquetas */
+.tags ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+    list-style: none;
+}
+
+.tags ul li {
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background-color: white;
+}
+
+/* Estilos de las tarjetas principales */
+.main-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-cards div img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos de las tarjetas combinadas */
+.combined-cards {
+    display: none;
+}
+
+/*Estilos para las secciones en las que se muestran los diferentes productos, categorías o tipos de envío*/
+.products-section h2 {
+    display: inline-block;
+    margin-left: 13%;
+    padding: 10px 0;
+    font-size: 20px;
+    color: var(--main-color);
+    transition: text-decoration 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.products-section h2::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: var(--main-color);
+    bottom: calc(100% - 32px);
+    transition: width 0.3s ease, bottom 0.3s ease;
+}
+
+.products-section h2:hover::before {
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.prev-button, .next-button {
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    color: var(--back-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.products-carousel {
+    width: 75%;
+    background-color: white;
+    margin: 0 10px;
+    border-radius: 30px;
+    overflow-x: auto;
+}
+
+.carousel {
+    display: flex;
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+.products-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.sub-container {
+    min-width: calc(20% - 30px);
+    flex: 1;
+    margin: 10px 15px;
+    border: 1px solid var(--main-color);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.sub-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--main-color);
+}
+
+.sub-container img {
+    max-width: 100%;
+    max-height: 70%;
+}
+
+.description {
+    background-color: var(--back-color);
+    padding: 10px;
+}
+
+.description h3, .sub-container h3 {
+    font-size: 18px;
+}
+
+.description span {
+    font-size: 18px;
+}
+
+.rating {
+    width: 100%;
+    max-height: 10%;
+}
+
+.rating img {
+    width: 100%;
+    height: 100%;
+}
+
+.category-container h3, .shipment-container h3 {
+    text-align: center;
+    background-color: var(--back-color);
+}
+
+footer {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+footer h4 {
+    font-size: 16px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+footer ul li {
+    margin: 8px 0;
+}
+
+footer ul a {
+    text-decoration: none;
+    color: black;
+}
+
+footer ul a:hover {
+    text-decoration: underline;
+}
