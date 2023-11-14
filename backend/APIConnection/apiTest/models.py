@@ -1,8 +1,116 @@
 from django.db import models
 from datetime import date
 
+class ProductStock:
+    def __init__(self, sku_product, current_product_stock, update_stock_date, expiration_stock_date):
+        self._sku_product = sku_product
+        self._current_product_stock = current_product_stock
+        self._update_stock_date = update_stock_date
+        self._expiration_stock_date = expiration_stock_date
 
-#tener en cuenta que esta clase 'SubCategory' depende de ProductCategory para acceder a sus propiedades
+    @property
+    def sku_product(self):
+        return self._sku_product
+
+    @property
+    def current_product_stock(self):
+        return self._current_product_stock
+
+    @property
+    def update_stock_date(self):
+        return self._update_stock_date
+
+    @property
+    def expiration_stock_date(self):
+        return self._expiration_stock_date
+
+    @sku_product.setter
+    def sku_product(self, new_sku_product):
+        self._sku_product = new_sku_product
+
+    @current_product_stock.setter
+    def current_product_stock(self, new_current_product_stock):
+        self._current_product_stock = new_current_product_stock
+
+    @update_stock_date.setter
+    def update_stock_date(self, new_update_stock_date):
+        self._update_stock_date = new_update_stock_date
+
+    @expiration_stock_date.setter
+    def expiration_stock_date(self, new_expiration_stock_date):
+        self._expiration_stock_date = new_expiration_stock_date
+
+class ProductRating:
+    def __init__(self, stars_rating, comment_rating, rating_date, rating_update=None):
+        self._stars_rating = stars_rating
+        self._comment_rating = comment_rating
+        self._rating_date = rating_date
+        self._rating_update = rating_update
+
+    @property
+    def stars_rating(self):
+        return self._stars_rating
+
+    @property
+    def comment_rating(self):
+        return self._comment_rating
+
+    @property
+    def rating_date(self):
+        return self._rating_date
+
+    @property
+    def rating_update(self):
+        return self._rating_update
+
+    @stars_rating.setter
+    def stars_rating(self, new_stars_rating):
+        self._stars_rating = new_stars_rating
+
+    @comment_rating.setter
+    def comment_rating(self, new_comment_rating):
+        self._comment_rating = new_comment_rating
+
+    @rating_date.setter
+    def rating_date(self, new_rating_date):
+        self._rating_date = new_rating_date
+
+    @rating_update.setter
+    def rating_update(self, new_rating_update):
+        self._rating_update = new_rating_update
+
+
+class ProductCategory:
+    def __init__(self, name_category, subcategory, description):
+        self._name_category = name_category
+        self._subcategory = subcategory
+        self._description = description
+
+    @property
+    def name_category(self):
+        return self._name_category
+
+    @property
+    def subcategory(self):
+        return self._subcategory
+
+    @property
+    def description(self):
+        return self._description
+
+    @name_category.setter
+    def name_category(self, new_name_category):
+        self._name_category = new_name_category
+
+    @subcategory.setter
+    def subcategory(self, new_subcategory):
+        self._subcategory = new_subcategory
+
+    @description.setter
+    def description(self, new_description):
+        self._description = new_description
+
+
 class ProductSubcategory:
     def __init__(self, category, name_subcategory, description_subcategory):
         self._category = category
