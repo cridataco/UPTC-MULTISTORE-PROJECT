@@ -40,6 +40,26 @@ class ProductSubcategory:
             f"Descripcion: {self.description_subcategory}\n"
         )
 
+class ShoppingCart:
+    def __init__(self):
+        self.cart_items = []
+
+    def add_to_cart(self, product, quantity=1, size=None, color=None):
+        cart_item = {
+            'product': product,
+            'quantity': quantity,
+            'size': size,
+            'color': color,
+        }
+        self.cart_items.append(cart_item)
+
+    def display_cart(self):
+        for item in self.cart_items:
+            product = item['product']
+            quantity = item['quantity']
+            size = item['size']
+            color = item['color']
+            print(f"Product: {product.prod_name}, Quantity: {quantity}, Size: {size}, Color: {color}")
 
 class PriceHistory:
     def __init__(self, id_price_history, start_date, end_date, price_actual):
