@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 
+
 class ProductStock:
     def __init__(self, sku_product, current_product_stock, update_stock_date, expiration_stock_date):
         self._sku_product = sku_product
@@ -39,6 +40,7 @@ class ProductStock:
     @expiration_stock_date.setter
     def expiration_stock_date(self, new_expiration_stock_date):
         self._expiration_stock_date = new_expiration_stock_date
+
 
 class ProductRating:
     def __init__(self, stars_rating, comment_rating, rating_date, rating_update=None):
@@ -148,6 +150,7 @@ class ProductSubcategory:
             f"Descripcion: {self.description_subcategory}\n"
         )
 
+
 class ShoppingCart:
     def __init__(self):
         self.cart_items = []
@@ -161,6 +164,18 @@ class ShoppingCart:
         }
         self.cart_items.append(cart_item)
 
+    def update_cart_item(self, product, new_quantity=None, new_size=None, new_color=None):
+        for item in self.cart_items:
+            if item['product'] == product:
+                if new_quantity is not None:
+                    item['quantity'] = new_quantity
+                if new_size is not None:
+                    item['size'] = new_size
+                if new_color is not None:
+                    item['color'] = new_color
+                return True
+        return False
+
     def display_cart(self):
         for item in self.cart_items:
             product = item['product']
@@ -168,6 +183,7 @@ class ShoppingCart:
             size = item['size']
             color = item['color']
             print(f"Product: {product.prod_name}, Quantity: {quantity}, Size: {size}, Color: {color}")
+
 
 class PriceHistory:
     def __init__(self, id_price_history, start_date, end_date, price_actual):
