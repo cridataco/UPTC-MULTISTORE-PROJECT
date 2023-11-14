@@ -152,7 +152,7 @@ class ShoppingCart:
     def __init__(self):
         self.cart_items = []
 
-    def add_to_cart(self, product, quantity=1, size=None, color=None):
+    def add_to_cart(self, product, quantity, size=None, color=None):
         cart_item = {
             'product': product,
             'quantity': quantity,
@@ -169,12 +169,22 @@ class ShoppingCart:
             color = item['color']
             print(f"Product: {product.prod_name}, Quantity: {quantity}, Size: {size}, Color: {color}")
 
+# falta agregar los descuentos ya que aun no se tiene nada de los cupones
+    def total_price(self):
+        totalPrice = 0
+        for product in self.cart_items:
+            totalPrice += ((PriceHistory.price_actual + ((PriceHistory.tax / 100) * PriceHistory.price_actual) +
+                           PriceHistory.shipment)) * product['quantity']
+        return totalPrice
+
 class PriceHistory:
-    def __init__(self, id_price_history, start_date, end_date, price_actual):
+    def __init__(self, id_price_history, start_date, end_date, price_actual, tax, shipment):
         self.id_price_history = id_price_history
         self.start_date = start_date
         self.end_date = end_date
         self.price_actual = price_actual
+        self.tax = tax
+        self.shipment = shipment
 
     def display_price_history(self):
         print(f"ID: {self.id_price_history}")
@@ -182,9 +192,30 @@ class PriceHistory:
         print(f"End Date: {self.end_date}")
         print(f"Price Actual: {self.price_actual}")
 
+    @property
+    def price_actual(self):
+        return self.price_actual
+    @price_actual.setter
+    def price_actual(self, value):
+        self.price_actual = value
+
+    @property
+    def tax(self):
+        return self.tax
+    @tax.setter
+    def tax(self, value):
+        self.tax = value
+
+    @property
+    def shipment(self):
+        return self.shipment
+    @shipment.setter
+    def shipment(self, value):
+        self.shipment = value
+
 
 class ProductTest:
-    def __init__(self, prod_id, prod_name, prod_ref, release_date, prod_description):
+    def __init__(self, prod_id, prod_name, prod_ref, release_date, prod_description, prod_price):
         self._prod_id = prod_id
         self._prod_name = prod_name
         self._prod_ref = prod_ref
@@ -192,6 +223,7 @@ class ProductTest:
         self._prod_description = prod_description
         self._prod_key_words = []
         self._prod_ratings = []
+        self._prod_price = prod_price
 
     class Admin:
         def __init__(self, inventory):
