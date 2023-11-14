@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/StylePromocion.css">
+  <!-- Compiled and minified CSS -->
+  <title>Promociones</title>
+
+</head>
+
+<body>
+  <div class="navbar">
+    <img src="../images/Logo barra.png" alt="Tu Logo" class="logo">
+    <div class="search-container">
+      <input type="text" placeholder="   Buscar...">
+      <button>
+        <img src="../images/Boton buscar.png" alt="Buscar">
+      </button>
+    </div>
+    <div class="square-buttons">
+      <a href="#"><img src="../images/Boton carrito.png" alt="Botón 1"></a>
+      <a href="#"><img src="../images/Boton ubicacion.png" alt="Botón 2"></a>
+    </div>
+  </div>
+  <!--fixed-->
+  <div class="links">
+    <a href="#inicio">Inicio</a>
+    <a href="#categorias">Categorías</a>
+    <a href="#historial">Historial</a>
+    <a href="#promociones">Promociones</a>
+    <a href="#ayuda">Terminos y condiciones</a>
+  </div>
+
+  <!--Promociones-->
+
+  <div class="title">
+    <P id="p1">Promociones</P>
+    <p>
+      <span class="word imper"> imperdibles.</span>
+      <span class="word unique"> únicas.</span>
+      <span class="word fant"> fantásticas.</span>
+      <span class="word relam"> relámpago.</span>
+      <span class="word exclusive"> exclusivas.</span>
+    </p>
+    <script src="../js/ScriptPromocion.js"></script>
+  </div>
+
+  <!--Carrusel-->
+  <div id="header-borde"></div>
+  <div id="banner">
+
+    <div class="contenedorBanner">
+
+      <div class="slideBanner">
+        <img style="background-image: url('../images/banner1.jpg');" class="imgBanner" />
+        <div id="disposicionTextoBaner0" class="informacionBanner">
+          <div class="tituloBanner">TITULO BANNER 1</div>
+
+          <div class="textoBanner">DESCRIPCION1.</div>
+          <a class="botonBannerEnlase" href="#">Saber mas</a>
+        </div>
+      </div>
+
+      <div class="slideBanner">
+        <img style="background-image: url('../images/banner2.jpg')" class="imgBanner" />
+        <div id="disposicionTextoBaner0" class="informacionBanner">
+          <div class="tituloBanner">TITULO BANNER 2</div>
+
+          <div class="textoBanner">DESCRIPCION2</div>
+
+          <a class="botonBannerEnlase" href="#">Saber mas</a>
+        </div>
+      </div>
+
+      <div class="slideBanner">
+        <img style="background-image: url('../images/pomocion2.png')" class="imgBanner" />
+        <div id="disposicionTextoBaner0" class="informacionBanner">
+          <div class="tituloBanner">prueba texto de titulo</div>
+          <div class="textoBanner">texto debajo del titulo</div>
+          <a class="botonBannerEnlase" href="#">Saber mas</a>
+        </div>
+
+      </div>
+
+      <div class="anteriorBanner left" onclick="bannerClick(-1)"></div>
+      <div class="siguienteBanner right" onclick="bannerClick(1);"></div>
+      <div class="botonesBanner">
+        <script> iniciar();</script>
+      </div>
+    </div>
+
+    <div class="Promo-diames">
+      <a href="" id="dia">
+        <p>Promoción del dia</p>
+      </a>
+      <a href="" id="mes">
+        <p>Promoción del mes</p>
+      </a>
+    </div>
+
+    <!--manejo del menu de filtros-->
+    <div id="menu">
+      <ul class="nav">
+        <li id="cat"><a href="">Categorias </a>
+          <ul>
+            <li><a href="">Ropa</a></li>
+            <li><a href="">Tecnologia</a></li>
+            <li><a href="">Hogar</a></li>
+          </ul>
+        </li>
+        <li id="precio"><a href="">Precio </a>
+          <ul>
+            <li><a href="">Menor a mayor</a></li>
+            <li><a href="">Mayor a menor</a></li>
+          </ul>
+        </li>
+        <li id="costo"><a href="">Costo de envio </a>
+          <ul>
+            <li><a href="">Gratis</a></li>
+          </ul>
+        </li>
+        <li id="nuevo"><a href="">Lo mas nuevo</a></li>
+      </ul>
+    </div>
+
+    <div class="promocion">
+      <div id="producto">
+        <div id="sub-producto">
+          <img style="background-image: url('../images/igtab.jpg');" class="imgprod"/>
+        </div>
+        <div id="descripcionProducto">
+
+        </div>
+      </div>
+      <div id="producto1">
+        <div id="sub-producto">
+           <img style="background-image: url('../images/reloj.jpg');" class="imgprod"/> 
+         </div>
+         <div id="descripcionProducto">
+            <p>descripcion del Producto</p>
+         </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+
+    <div class="PromoMes">
+      <a href=""><h2>Ofertas del mes</h2></a>
+    </div>
+  </div>
+  </div>
