@@ -335,51 +335,6 @@ button.search-button {
     z-index: 9999;
 }
 
-#epayco-popup {
-    background-image: url('images/epayco_fondo.webp'); /* Ruta a tu imagen de fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center center; /* Centra la imagen de fondo */
-    background-size: 100%;
-    background-color: #f0f0f0; /* Fondo de respaldo en caso de que la imagen no se cargue */
-    border: 1px solid #ddd; /* Borde del pop-up */
-    border-radius: 10px; /* Esquinas redondeadas */
-    padding: 20px;
-    width: 30%; /* Ancho del pop-up (puedes ajustarlo según tus preferencias) */
-    margin: 10% 30%; /* Centrar vertical y horizontalmente */
-    max-height: 40vh; /* Altura máxima del pop-up (ajusta según lo "más corto" que desees) */
-    
-}
-
-.epayco-payment-form h2 {
-    font-size: 2em; /* Tamaño del título */
-    text-align: center;
-    margin-bottom: 250px; /* Espacio entre el título y el formulario */
-    color: #fff;
-}
-
-.epayco-payment-form {
-    text-align: center;
-}
-
-.epayco-button {
-    border: 1px solid #227873; /* Borde verde similar al botón de Nequi */
-    border-radius: 5px;
-    padding: 5px; /* Reduzcamos el espacio de relleno para que los botones sean más pequeños */
-    cursor: pointer;
-    background-color: white; /* Color de fondo */
-    text-align: center; /* Alineación de texto al centro */
-    margin: 0 auto;
-}
-
-.epayco-button img {
-    width: 100%; /* Ajusta el tamaño de la imagen al 100% del botón */
-    height: 100%;
-}
-
-.epayco-button:hover {
-    background-color: #1b5d61; /* Cambio de color al pasar el mouse, similar al botón de Nequi */
-    color: white; /* Cambio de color del texto al pasar el mouse */
-}
 
 
 .overlay {
@@ -395,7 +350,7 @@ button.search-button {
 
 /* Estilos para el formulario de Nequi */
 #nequi-popup {
-    background-image: url('images/nequi_fondo.webp'); /* Ruta a tu imagen de fondo */
+    background-image: url('../images/nequi_fondo.webp'); /* Ruta a tu imagen de fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center center; /* Centra la imagen de fondo */
     background-size: 40%;
