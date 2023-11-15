@@ -1,0 +1,601 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #D9E0DC;
+}
+
+
+/* Estilos CSS para la barra de navegación */
+.navbar {
+    background-color: #227873; /* Cambia el color de fondo según tus preferencias */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos CSS para la barra de búsqueda */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: white; /* Agrega un fondo blanco a la barra de búsqueda */
+    padding: 8px; /* Agrega relleno para separar el contenido de los bordes */
+    border-radius: 25px;
+}
+
+.search-container input[type="text"] {
+    padding: 0; /* Quita el relleno del input */
+    font-size: 17px;
+    border: none;
+    margin-right: 5px;
+    height: 36px;
+    width: 600px; /* Ajusta el ancho de la barra de búsqueda según tus necesidades */
+    outline: none;
+}
+
+.search-container button {
+    padding: 0; /* Quita el relleno para ajustar el tamaño del botón a la imagen */
+    background: none; /* Quita el fondo del botón */
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilos CSS para los botones cuadrados */
+.square-buttons {
+    display: flex;
+}
+
+.square-buttons a {
+    display: inline-block; /* Hace que los enlaces sean elementos en bloque */
+    margin-right: 5px;
+    border: none; /* Quita el borde gris */
+    border-radius: 0; /* Quita el borde redondeado */
+    text-decoration: none; /* Quita el subrayado predeterminado de los enlaces */
+}
+
+.square-buttons a img {
+    width: 50px; /* Ancho ajustado */
+    height: 50px; /* Alto ajustado */
+    width: 100%; /* Haz que la imagen ocupe el 100% del enlace */
+}
+
+/* Estilos CSS para el logo */
+.logo {
+    width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
+}
+
+/* Estilos CSS para los enlaces */
+.links {
+    background-color: #227873;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    padding: 10px 0;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px; /* Espacio hacia los lados izquierdo y derecho */
+}
+
+.top-rectangle-container {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 700px; /* Ancho deseado */
+    height: 60px; /* Alto deseado */
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    border:none;
+}
+
+.top-rectangle p {
+    font-size: 14px;
+}
+
+.select-button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+.select-container {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px; /* Esto añade un espacio entre el texto y el botón, ajusta según tus preferencias */
+}
+
+.bottom-rectangle {
+    font-family: 'Raleway', sans-serif;
+    width: 700px; /* Ancho deseado */
+    height: 200px;
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 50px;
+    border:none;
+}
+
+.product-image img {
+    margin-top: 20px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.product-details {
+    margin-top: 15px;
+    font-family: 'Raleway', sans-serif;
+    margin-left: 20px;
+
+}
+.title {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 50px;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.title2 {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: bold;
+}
+.title3 {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.green-text {
+    margin-top: 5px;
+    color: #227873;
+}
+
+.color-sample {
+    width: 20px;
+    height: 20px;
+    background-color: #572278; /* Personaliza el color del producto */
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.small-text {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.total-price {
+    margin-top: 10px;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.quantity-button {
+    font-family: 'Raleway', sans-serif;
+    width: 30px;
+    height: 20px;
+    background-color: #227873; 
+    color: #fff;
+    border-radius: 50px;
+    margin: 0 5px;
+    border: 0;
+}
+
+.delete-button {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    border: none;
+}
+.new-rectangle {
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 600px; /* Ancho deseado */
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    border: none;
+
+}
+
+.new-rectangle p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.input-wrapper {
+    margin-bottom: 20px;
+}
+
+label {
+    color: #888; /* Color gris suave */
+    text-decoration: underline; /* Subrayado */
+    display: block;
+}
+
+input {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #bfbdbd;
+    border-radius: 15px;
+    font-size: 13px;
+}
+
+button.search-button {
+    background-color: #227873;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.payment-section {
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 50px;
+    border: none;
+    height: 450px;
+}
+@media (min-width: 768px) {
+.payment-section2{
+    display: none;
+}
+
+}
+
+
+.payment-buttons {
+    display: flex;
+    justify-content:space-evenly;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.payment-button {
+    margin-top: 30px;
+    border: 2px solid #227873; /* Borde verde */
+    border-radius: 15px;
+    padding: 0px; /* Reduzcamos el espacio de relleno para que los botones sean más pequeños */
+    cursor: pointer;
+    width: 100px; /* Ancho reducido */
+    height: 100px; /* Alto reducido */
+}
+
+
+
+
+
+.payment-button img {
+    width: 100%; /* Ajusta el tamaño de la imagen al 100% del botón */
+    height: 100%;
+    border-radius: 15px;
+}
+
+.total {
+    margin-top: 50px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+.security-text {
+    margin-top: 50px;
+    color: #227873;
+}
+
+.content-container {
+    float: left; /* Hace que el contenedor de contenido flote a la izquierda */
+    width: 70%; /* Ancho del contenedor principal */
+}
+
+.payment-section {
+    float: left; /* Hace que el rectángulo de pago flote a la izquierda */
+    width: 30%; /* Ancho del rectángulo de pago */
+    /* El resto de estilos para el rectángulo de pago */
+}
+.main-container {
+    display: flex;
+}
+
+.content-container {
+    flex: 70%;
+    /* Estilos para los tres rectángulos acostados */
+}
+
+.payment-section {
+    flex: 30%;
+    /* Estilos para el rectángulo de pago */
+}
+/* Estilos generales ---------------------------------------------------------------------------------------------*/
+@media (min-width: 769px) {
+.menu-icon{
+    display: none;
+}
+.mobile-menu{
+    display: none;
+}
+}
+@media (max-width: 768px) {
+    .navbar {
+        background-color: #227873;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 30px; /* Aumentamos el espacio en dispositivos móviles */
+        width: 112%;
+    }
+    
+    .navbar a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    /* Estilos CSS para la barra de búsqueda */
+    .search-container {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 6px 10px; /* Aumentamos el espacio en dispositivos móviles */
+        border-radius: 25px;
+    }
+    
+    .search-container input[type="text"] {
+        padding: 4px; /* Ajustamos el relleno del input */
+        font-size: 16px; /* Reducimos el tamaño de fuente para dispositivos móviles */
+        border: none;
+        margin-right: 5px;
+        height: 28px; /* Ajustamos el alto del input para dispositivos móviles */
+        width: 100%;
+        outline: none;
+    }
+    
+    .search-container button {
+        padding: 4px; /* Ajustamos el relleno para dispositivos móviles */
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .search-container button img {
+        width: 20px; /* Reducimos el tamaño de la imagen para dispositivos móviles */
+        height: 16px; /* Reducimos el tamaño de la imagen para dispositivos móviles */
+    }
+    
+    /* Estilos CSS para los botones cuadrados */
+    .square-buttons {
+        display: flex;
+    }
+    
+.square-buttons a {
+    display: inline-block;
+    margin-right: 6px; /* Aumentamos el espacio entre los botones en dispositivos móviles */
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+.square-buttons a img {
+    width: 40px; /* Reducimos el tamaño de los botones para dispositivos móviles */
+    height: 40px; /* Reducimos el tamaño de los botones para dispositivos móviles */
+    width: 100%;
+}
+
+      .links{
+        display: none;
+      }
+.payment-section{
+    display: none;
+}
+.payment-section2 {
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    margin-right: 50px;
+    border: none;
+    height: 60%;
+    width: 80%;
+    margin-left: 50px;
+}
+
+    
+        .top-rectangle-container {
+            margin: 20px 10px;
+            width: 90%;
+        }
+    
+        .top-rectangle p {
+            font-size: 12px;
+          
+        }
+    
+        .bottom-rectangle {
+            width: 90%;
+            margin: 20px 10px;
+          
+        }
+    
+        .product-image img {
+            width: 100px;
+        }
+    
+        .product-details {
+            margin-left: 10px;
+        }
+    
+        .title {
+            font-size: 20px;
+            margin-left: 10px;
+            margin-top: 20px;
+       
+        }
+    
+        .title2 {
+            font-size: 24px;
+            margin-top: 30px;
+        }
+    
+        .title3 {
+            font-size: 16px;
+            margin-top: 30px;
+        }
+    
+        .color-sample {
+            width: 15px;
+            height: 15px;
+            margin-top: 5px;
+        }
+    
+        .small-text {
+            font-size: 10px;
+            margin-top: 5px;
+            
+        }
+    
+        .total-price {
+            margin-top: 5px;
+        }
+    
+        .quantity-selector {
+            margin-left: 10px;
+        }
+    
+        .quantity-button {
+            width: 20px;
+            height: 15px;
+            margin: 0 5px;
+        }
+    
+        .delete-button {
+            width: 20px;
+            height: 20px;
+        }
+    
+        .new-rectangle {
+            margin: 20px 10px;
+            width: 90%;
+        }
+    
+        .new-rectangle p {
+            font-size: 14px;
+        }
+    
+        .input-wrapper {
+            margin-bottom: 10px;
+        }
+    
+        input {
+            padding: 4px;
+            font-size: 14px;
+        }
+    
+        button.search-button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    
+        .payment-section {
+            margin: 20px 10px;
+            height: auto;
+        }
+    
+        .payment-button {
+            width: 70px;
+            height: 70px;
+        }
+    
+        .total {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+    
+        .security-text {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    .main-container{
+        margin-left: 10%;
+    }
+  
+     .logo{
+        width: 50px;
+     }
+     .square-buttons{
+        width: 70px;
+        height: 40px;
+     }
+    --------------------------------------------------------
+    .menu-icon {
+        display: block;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+    .mobile-menu {
+        display: none; /* Inicialmente, oculta el menú desplegable en pantallas más grandes */
+        background-color: #333; /* Color de fondo del menú desplegable */
+        position: absolute; /* Para posicionar el menú de forma absoluta */
+        top: 40px; /* Ajusta la posición vertical del menú desplegable según sea necesario */
+        right: 0; /* Ajusta la posición horizontal del menú desplegable según sea necesario */
+    }
+    
+    .mobile-menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .mobile-menu li {
+        margin: 10px 0;
+    }
+    
+    .mobile-menu a {
+        color: white;
+        text-decoration: none;
+        display: block; /* Hace que los elementos de la lista sean bloques para ocupar el ancho completo */
+        padding: 10px; /* Añade espacio alrededor de los enlaces para hacerlos más clicables */
+    }
+    }  
