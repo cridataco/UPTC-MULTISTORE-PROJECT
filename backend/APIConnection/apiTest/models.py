@@ -222,7 +222,7 @@ class Admin:
             print(product)
 
 
-class Product:
+class ProductBack:
     def __init__(self, product_id, product_tax, product_name, product_reference_model, product_summary_desc,
                  product_release_date, product_creation_date, product_keywords, product_link):
         self._product_id = product_id

@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
-from .models import ProductTest, Admin
+
+from database.models.product import Product
+from .models import ProductBack, Admin
 from database.db_connection import session
 from database.models import product
 import json
@@ -31,13 +33,16 @@ class ProductAPI:
             product_keywords = product_data.get('key_words')
             product_link = product_data.get('product_link')
 
-            product
+            crt_product = ProductBack(product_id, product_tax, product_name, product_reference_model,
+                                      product_summary_desc, product_release_date, product_creation_date,
+                                      product_keywords, product_link)
 
-            admin.add_product(product)
+            admin.add_product(crt_product)
 
+            pd = Product(product_id, product_tax, product_name, product_reference_model,
+                                     product_summary_desc, product_release_date, product_creation_date)
 
-
-            print(product.__str__())
+            pd.create_product(session)
 
             return JsonResponse({'message': 'SIUUUUUUUUUU!'})
 
@@ -46,7 +51,7 @@ class ProductAPI:
     def get_product(request, prod_id):
         if request.method == 'GET':
             # Busca el producto en la lista de productos del inventario
-            product = inventory.get_product(prod_id)
+            #product = inventory.get_product(prod_id)
 
             if product is not None:
                 # Devuelve el producto como JSON
@@ -62,7 +67,7 @@ class ProductAPI:
             product_data = json.loads(request.body)
 
             # Crea un nuevo objeto ProductTest con los datos actualizados
-            new_product = ProductTest(
+            '''new_product = ProductTest(
                 prod_id=int(product_data.get('prod_id')),
                 prod_name=product_data.get('prod_name'),
                 prod_ref=product_data.get('prod_ref'),
@@ -76,16 +81,16 @@ class ProductAPI:
             if inventory.update_product(prod_id, new_product):
                 return JsonResponse({'message': 'Producto actualizado con éxito'})
             else:
-                return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+                return JsonResponse({'error': 'Producto no encontrado'}, status=404)'''
 
     @staticmethod
     @csrf_exempt
     def delete_product(request, prod_id):
-        if request.method == 'DELETE':
+        '''if request.method == 'DELETE':
             print(len(inventory.products))
             # Intenta eliminar el producto del inventario
             if inventory.delete_product(prod_id):
                 print(len(inventory.products))
                 return JsonResponse({'message': 'Producto eliminado con éxito'})
             else:
-                return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+                return JsonResponse({'error': 'Producto no encontrado'}, status=404)'''
