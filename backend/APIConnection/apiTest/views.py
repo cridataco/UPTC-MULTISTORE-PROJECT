@@ -31,7 +31,7 @@ class ProductAPI:
             product_keywords = product_data.get('key_words')
             product_link = product_data.get('product_link')
 
-            product =
+            product
 
             admin.add_product(product)
 
