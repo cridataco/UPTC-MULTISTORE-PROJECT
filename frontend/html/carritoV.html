@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articulos</title>
+    <link rel="shortcut_icon" href="../images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/carritoV.css">
+    <script src="../carritoV.js"></script>
+
+</head>
+<body>
+
+<div class="navbar">
+    <img src="../images/Logo barra.png" alt="Tu Logo" class="logo">
+    <div class="menu-icon">&#9776;</div>
+
+    <!-- Crea un contenedor para el menú desplegable -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#categorias">Categorías</a></li>
+        <li><a href="#promociones">Promociones</a></li>
+        <li><a href="#ayuda">Ayuda PQR/Términos y condiciones</a></li>
+      </ul>
+    </div>
+    <div class="search-container">
+        <input type="text" placeholder="   Buscar...">
+        <button>
+            <img src="../images/Boton buscar.png" alt="Buscar">
+        </button>
+    </div>
+    <div class="square-buttons">
+        <a href="#"><img src="../images/Boton carrito.png" alt="Botón 1"></a>
+        <a href="#"><img src="../images/Boton ubicacion.png" alt="Botón 2"></a>
+    </div>
+    <!-- Agrega un botón para abrir el menú desplegable -->
+    
+    
+</div>
+
+<!--fixed-->
+<div class="links">
+    <a href="#inicio">Inicio</a>
+    <a href="#categorias">Categorías</a>
+    <a href="#promociones">Promociones</a>
+    <a href="#ayuda">Ayuda PQR/Terminos y condiciones</a>
+</div>
+<div class="main-container">
+    <div class="content-container">
+<div class="top-rectangle-container">
+    <div class="top-rectangle">
+        <p>ARTÍCULOS EN TU CARRITO (1)</p>
+        <div class="button-container">
+            <p style="display: inline; margin-right: 5px;">Seleccionar todo</p>
+            <button class="select-button"></button>
+        </div>
+    </div>
+</div>
+
+<div class="bottom-rectangle">
+    <div class="product-image">
+        <img src="../images/SN.webp" alt="Producto">
+    </div>
+    <div class="product-details">
+        <p>SmartWatch Plus</p>
+        <p><strong>COP 3595.95</strong></p>
+        <p class="green-text">Envío: 53423.20</p>
+        <div class="color-sample"></div>
+        <p class="small-text">Quedan 5</p>
+        <div class="total-price">
+            <p><strong>TOTAL:</strong> COP</p>
+            <p><strong>8826.15</strong></p>
+        </div>
+        <div class="quantity-selector">
+            <button class="quantity-button" id="decrement" onclick="decrementValue()">-</button>
+            <input type="number" class="quantity" id="quantity" value="1" min="1">
+            <button class="quantity-button" id="increment" onclick="incrementValue()">+</button>
+        </div>
+        
+    </div>
+    <button class="delete-button" style="background-image: url('../images/caneca.jpg');"></button>
+
+</div>
+<div class="title">
+    <p>PEDIDOS</p>   
+</div>   
+<div class="new-rectangle">
+    <p>Ingresa a continuación el número de pedido que deseas consultar:</p>
+    <div class="input-wrapper">
+        <input type="text" id="numero-pedido" placeholder="Numero de pedido:" />
+    </div>
+    <button class="search-button">Buscar</button>
+</div>
+</div>
+<div class="payment-section">
+    <div class="title2">
+        <p>PAGA CON</p>
+    </div>  
+    <div class="payment-buttons">
+        <button class="payment-button" id="epayco-button"><img src="../images/Recurso-1.png" alt="Método 1"></button>
+        <button class="payment-button" id="nequi-button"><img src="../images/descarga.png" alt="Método 2"></button>
+    </div>
+    <div class="title3">
+        <p class="total">TOTAL: COP 8826.15</p>
+        <p class="security-text">Si tu artículo no llega o no es igual a la descripción nosotros nos encargamos, compra con seguridad, compra con calidad.</p> 
+    </div>  
+    
+</div>
+
+</div>
+<div class="payment-section2">
+    <div class="title2">
+        <p>PAGA CON</p>
+    </div>  
+    <div class="payment-buttons">
+        <button class="payment-button" id="epayco-button"><img src="../images/Recurso-1.png" alt="Método 1"></button>
+        <button class="payment-button" id="nequi-button"><img src="../images/descarga.png" alt="Método 2"></button>
+    </div>
+    <div class="title3">
+        <p class="total">TOTAL: COP 8826.15</p>
+        <p class="security-text">Si tu artículo no llega o no es igual a la descripción nosotros nos encargamos, compra con seguridad, compra con calidad.</p> 
+    </div>  
+
+</body>
