@@ -1,9 +1,8 @@
 from django.db import models
 from datetime import date
 
-
 class ProductStock:
-    def __init__(self, sku_product, current_product_stock, update_stock_date, expiration_stock_date):
+    def _init_(self, sku_product, current_product_stock, update_stock_date, expiration_stock_date):
         self._sku_product = sku_product
         self._current_product_stock = current_product_stock
         self._update_stock_date = update_stock_date
@@ -41,9 +40,8 @@ class ProductStock:
     def expiration_stock_date(self, new_expiration_stock_date):
         self._expiration_stock_date = new_expiration_stock_date
 
-
 class ProductRating:
-    def __init__(self, stars_rating, comment_rating, rating_date, rating_update=None):
+    def _init_(self, stars_rating, comment_rating, rating_date, rating_update=None):
         self._stars_rating = stars_rating
         self._comment_rating = comment_rating
         self._rating_date = rating_date
@@ -83,7 +81,7 @@ class ProductRating:
 
 
 class ProductCategory:
-    def __init__(self, name_category, subcategory, description):
+    def _init_(self, name_category, subcategory, description):
         self._name_category = name_category
         self._subcategory = subcategory
         self._description = description
@@ -114,7 +112,7 @@ class ProductCategory:
 
 
 class ProductSubcategory:
-    def __init__(self, category, name_subcategory, description_subcategory):
+    def _init_(self, category, name_subcategory, description_subcategory):
         self._category = category
         self._name_subcategory = name_subcategory
         self._description_subcategory = description_subcategory
@@ -143,19 +141,18 @@ class ProductSubcategory:
     def description_subcategory(self, value):
         self._description_subcategory = value
 
-    def __str__(self):
+    def _str_(self):
         return (
             f"Subcategoria: {self.name_subcategory}\n"
             f"Categoria: {self.category.name_category}\n"
             f"Descripcion: {self.description_subcategory}\n"
         )
 
-
 class ShoppingCart:
-    def __init__(self):
+    def _init_(self):
         self.cart_items = []
 
-    def add_to_cart(self, product, quantity=1, size=None, color=None):
+    def add_to_cart(self, product, quantity, size=None, color=None):
         cart_item = {
             'product': product,
             'quantity': quantity,
@@ -163,18 +160,6 @@ class ShoppingCart:
             'color': color,
         }
         self.cart_items.append(cart_item)
-
-    def update_cart_item(self, product, new_quantity=None, new_size=None, new_color=None):
-        for item in self.cart_items:
-            if item['product'] == product:
-                if new_quantity is not None:
-                    item['quantity'] = new_quantity
-                if new_size is not None:
-                    item['size'] = new_size
-                if new_color is not None:
-                    item['color'] = new_color
-                return True
-        return False
 
     def display_cart(self):
         for item in self.cart_items:
@@ -184,13 +169,22 @@ class ShoppingCart:
             color = item['color']
             print(f"Product: {product.prod_name}, Quantity: {quantity}, Size: {size}, Color: {color}")
 
+# falta agregar los descuentos ya que aun no se tiene nada de los cupones
+    def total_price(self):
+        totalPrice = 0
+        for product in self.cart_items:
+            totalPrice += ((PriceHistory.price_actual + ((PriceHistory.tax / 100) * PriceHistory.price_actual) +
+                           PriceHistory.shipment)) * product['quantity']
+        return totalPrice
 
 class PriceHistory:
-    def __init__(self, id_price_history, start_date, end_date, price_actual):
+    def _init_(self, id_price_history, start_date, end_date, price_actual, tax, shipment):
         self.id_price_history = id_price_history
         self.start_date = start_date
         self.end_date = end_date
         self.price_actual = price_actual
+        self.tax = tax
+        self.shipment = shipment
 
     def display_price_history(self):
         print(f"ID: {self.id_price_history}")
@@ -198,9 +192,30 @@ class PriceHistory:
         print(f"End Date: {self.end_date}")
         print(f"Price Actual: {self.price_actual}")
 
+    @property
+    def price_actual(self):
+        return self.price_actual
+    @price_actual.setter
+    def price_actual(self, value):
+        self.price_actual = value
+
+    @property
+    def tax(self):
+        return self.tax
+    @tax.setter
+    def tax(self, value):
+        self.tax = value
+
+    @property
+    def shipment(self):
+        return self.shipment
+    @shipment.setter
+    def shipment(self, value):
+        self.shipment = value
+
 
 class ProductTest:
-    def __init__(self, prod_id, prod_name, prod_ref, release_date, prod_description):
+    def _init_(self, prod_id, prod_name, prod_ref, release_date, prod_description, prod_price):
         self._prod_id = prod_id
         self._prod_name = prod_name
         self._prod_ref = prod_ref
@@ -208,9 +223,10 @@ class ProductTest:
         self._prod_description = prod_description
         self._prod_key_words = []
         self._prod_ratings = []
+        self._prod_price = prod_price
 
     class Admin:
-        def __init__(self, inventory):
+        def _init_(self, inventory):
             self.inventory = inventory
 
         def add_product(self, product):
@@ -288,12 +304,12 @@ class ProductTest:
     def prod_ratings(self, value):
         self._prod_ratings = value
 
-    def __str__(self) -> str:
+    def _str_(self) -> str:
         return f"ID del producto: {self.prod_id}\nNombre del producto: {self.prod_name}\nReferencia del producto: {self.prod_ref}\nFecha de lanzamiento del producto: {self.release_date}\nDescripcion del producto: {self.prod_description}\nPalabras claves del producto: {self.prod_key_words}\nCalificaciones del producto: {self.prod_ratings}"
 
 
 class Inventory:
-    def __init__(self):
+    def _init_(self):
         self.products = []
 
     def add_product(self, product):
