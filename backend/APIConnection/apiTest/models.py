@@ -233,7 +233,7 @@ class ProductBack:
         self._product_release_date = product_release_date
         self._product_creation_date = product_creation_date
         self._product_keywords = product_keywords
-        self._product_link = product_link
+        self._product_keywords = product_link
 
     @property
     def product_id(self):
@@ -266,6 +266,38 @@ class ProductBack:
     @product_reference_model.setter
     def product_reference_model(self, value):
         self._product_reference_model = value
+    @property
+    def product_sumary_desc(self):
+        return self._product_summary_desc
+    @product_sumary_desc.setter
+    def product_sumary_desc(self, value):
+        self._product_summary_desc = value
+
+    @property
+    def product_release_date(self):
+        return self.product_release_date
+    @product_release_date.setter
+    def product_release_date(self, value):
+        self.product_release_date = value
+    @property
+    def product_creation_date(self):
+        return self.product_creation_date
+    @product_creation_date
+    def product_creation_date(self, value):
+        self.product_creation_date = value
+
+    @property
+    def product_keywords(self):
+        return self.product_keywords
+    @product_keywords
+    def product_keywords(self, value):
+        product_keywords = value
+    @property
+    def product_keywords(self):
+        return self.product_keywords
+    @property
+    def product_keywords(self, value):
+        product_keywords = value
 
     @property
     def prod_description(self):
