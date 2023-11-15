@@ -198,71 +198,74 @@ class PriceHistory:
         print(f"End Date: {self.end_date}")
         print(f"Price Actual: {self.price_actual}")
 
+class Admin:
+    def __init__(self, inventory):
+        self.inventory = inventory
 
-class ProductTest:
-    def __init__(self, prod_id, prod_name, prod_ref, release_date, prod_description):
-        self._prod_id = prod_id
-        self._prod_name = prod_name
-        self._prod_ref = prod_ref
-        self._release_date = release_date
-        self._prod_description = prod_description
-        self._prod_key_words = []
-        self._prod_ratings = []
+    def add_product(self, product):
+        self.inventory.add_product(product)
 
-    class Admin:
-        def __init__(self, inventory):
-            self.inventory = inventory
+    def get_product(self, prod_id):
+        return self.inventory.get_product(prod_id)
 
-        def add_product(self, product):
-            self.inventory.add_product(product)
+    def update_product(self, prod_id, new_product):
+        return self.inventory.update_product(prod_id, new_product)
 
-        def get_product(self, prod_id):
-            return self.inventory.get_product(prod_id)
+    def delete_product(self, prod_id):
+        return self.inventory.delete_product(prod_id)
 
-        def update_product(self, prod_id, new_product):
-            return self.inventory.update_product(prod_id, new_product)
+    def update_price_history(self, price_history, new_price):
+        price_history.price_actual = new_price
 
-        def delete_product(self, prod_id):
-            return self.inventory.delete_product(prod_id)
+    def display_inventory(self):
+        for product in self.inventory.products:
+            print(product)
 
-        def update_price_history(self, price_history, new_price):
-            price_history.price_actual = new_price
 
-        def display_inventory(self):
-            for product in self.inventory.products:
-                print(product)
-
-    @property
-    def prod_id(self):
-        return self._prod_id
-
-    @prod_id.setter
-    def prod_id(self, value):
-        self._prod_id = value
+class Product:
+    def __init__(self, product_id, product_tax, product_name, product_reference_model, product_summary_desc,
+                 product_release_date, product_creation_date, product_keywords, product_link):
+        self._product_id = product_id
+        self._product_tax = product_tax
+        self._product_name = product_name
+        self._product_reference_model = product_reference_model
+        self._product_summary_desc = product_summary_desc
+        self._product_release_date = product_release_date
+        self._product_creation_date = product_creation_date
+        self._product_keywords = product_keywords
+        self._product_link = product_link
 
     @property
-    def prod_name(self):
-        return self._prod_name
+    def product_id(self):
+        return self._product_id
 
-    @prod_name.setter
-    def prod_name(self, value):
-        self._prod_name = value
-
-    @property
-    def prod_ref(self):
-        return self._prod_ref
-
-    @prod_ref.setter
-    def prod_ref(self, value):
-        self._prod_ref = value
+    @product_id.setter
+    def product_id(self, value):
+        self._product_id = value
 
     @property
-    def release_date(self):
-        return self._release_date
+    def product_tax(self):
+        return self._product_tax
 
-    @release_date.setter
-    def release_date(self, value):
-        self._release_date = value
+    @product_tax.setter
+    def product_tax(self, value):
+        self._product_tax = value
+
+    @property
+    def product_name(self):
+        return self._product_name
+
+    @product_name.setter
+    def product_name(self, value):
+        self._product_name = value
+
+    @property
+    def product_reference_model(self):
+        return self._product_reference_model
+
+    @product_reference_model.setter
+    def product_reference_model(self, value):
+        self._product_reference_model = value
 
     @property
     def prod_description(self):
@@ -290,32 +293,3 @@ class ProductTest:
 
     def __str__(self) -> str:
         return f"ID del producto: {self.prod_id}\nNombre del producto: {self.prod_name}\nReferencia del producto: {self.prod_ref}\nFecha de lanzamiento del producto: {self.release_date}\nDescripcion del producto: {self.prod_description}\nPalabras claves del producto: {self.prod_key_words}\nCalificaciones del producto: {self.prod_ratings}"
-
-
-class Inventory:
-    def __init__(self):
-        self.products = []
-
-    def add_product(self, product):
-        self.products.append(product)
-
-    def get_product(self, prod_id):
-        for product in self.products:
-            if str(product.prod_id) == str(prod_id):  # Convierte ambos ID a cadenas
-                return product
-        print(f'Producto con ID {prod_id} no encontrado en el inventario')
-        return None
-
-    def update_product(self, prod_id, new_product):
-        for i, product in enumerate(self.products):
-            if str(product.prod_id) == str(prod_id):  # Convierte ambos ID a cadenas
-                self.products[i] = new_product
-                return True
-        return False
-
-    def delete_product(self, prod_id):
-        for i, product in enumerate(self.products):
-            if str(product.prod_id) == str(prod_id):  # Convierte ambos ID a cadenas
-                del self.products[i]
-                return True
-        return False

@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
-from .models import ProductTest, Inventory
+from .models import ProductTest, Admin
+from database.db_connection import session
+from database.models import product
 import json
 
-inventory = Inventory()
-
+admin = Admin()
 
 class ProductAPI:
 
@@ -17,22 +18,24 @@ class ProductAPI:
             product_data = json.loads(request.body)
 
             # Descompone el objeto JSON en sus atributos
-            product_id = int(product_data.get('prod_id'))
-            product_name = product_data.get('prod_name')
-            product_reference = product_data.get('prod_ref')
+            product_id = int(product_data.get('id_product'))
+            product_tax = int(product_data.get('id_tax'))
+            product_name = product_data.get('product_name')
+            product_reference_model = product_data.get('reference_model')
+            product_summary_desc = product_data.get('summary_description')
 
             date_str = product_data.get('release_date')
-            release_date = datetime.strptime(date_str, "%Y-%m-%d")
+            product_release_date = datetime.strptime(date_str, "%Y-%m-%d")
 
-            product_description = product_data.get('prod_description')
-            product_keywords = product_data.get('keywords')
-            product_ratings = product_data.get('ratings')
+            product_creation_date = datetime.now()
+            product_keywords = product_data.get('key_words')
+            product_link = product_data.get('product_link')
 
-            product = ProductTest(product_id, product_name, product_reference, release_date, product_description)
-            product._prod_key_words = product_keywords
-            product._prod_ratings = product_ratings
+            product =
 
-            inventory.add_product(product)
+            admin.add_product(product)
+
+
 
             print(product.__str__())
 
