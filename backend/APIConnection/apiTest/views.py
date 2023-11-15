@@ -40,7 +40,7 @@ class ProductAPI:
             admin.add_product(crt_product)
 
             pd = Product(product_id, product_tax, product_name, product_reference_model,
-                                     product_summary_desc, product_release_date, product_creation_date)
+                            product_summary_desc, product_release_date, product_creation_date)
 
             pd.create_product(session)
 
