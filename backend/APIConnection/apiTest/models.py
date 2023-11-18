@@ -279,16 +279,19 @@ class ProductBack:
     @product_release_date.setter
     def product_release_date(self, value):
         self.product_release_date = value
+
     @property
     def product_creation_date(self):
-        return self.product_creation_date
-    @product_creation_date
+        return self._product_creation_date
+
+    @product_creation_date.setter
     def product_creation_date(self, value):
-        self.product_creation_date = value
+        self._product_creation_date = value
 
     @property
     def product_keywords(self):
         return self.product_keywords
+
     @product_keywords
     def product_keywords(self, value):
         product_keywords = value
