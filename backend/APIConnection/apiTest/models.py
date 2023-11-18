@@ -291,13 +291,6 @@ class ProductBack:
     @property
     def product_keywords(self):
         return self.product_keywords
-
-    @product_keywords
-    def product_keywords(self, value):
-        self.product_keywords = value
-    @property
-    def product_keywords(self):
-        return self.product_keywords
     @property
     def product_keywords(self, value):
         self.product_keywords = value
