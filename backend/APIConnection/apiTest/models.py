@@ -1,6 +1,66 @@
 from django.db import models
 from datetime import date, datetime
 
+from sqlalchemy import false
+
+
+class PurchaseInformation:
+    def __init__(self, name, description, invoice, currency, amount, tax_base, tax, country, lang, external):
+        self.name = name
+        self.description = description
+        self.invoice = invoice
+        self.currency = currency
+        self.amount = amount
+        self.tax_base = tax_base
+        self.tax = tax
+        self.country = country
+        self.lang = lang
+        self.external = false
+
+    @property
+    def name(self):
+        return self.name
+
+    @property
+    def description(self):
+        return self.description
+
+    @property
+    def invoice(self):
+        return self.invoice
+
+    @property
+    def currency(self):
+        return self.currency
+
+    @property
+    def amount(self):
+        return self.amount
+
+    @property
+    def tax_base(self):
+        return self.tax_base
+
+    @property
+    def tax(self):
+        return self.tax
+
+    @property
+    def country(self):
+        return self.country
+
+    @property
+    def lang(self):
+        return self.lang
+
+    @property
+    def external(self):
+        return self.external
+
+    @external.setter
+    def external(self, value):
+        self.external = value
+
 
 class ProductStock:
     def _init_(self, sku_product, current_product_stock, update_stock_date, expiration_stock_date):
@@ -40,6 +100,7 @@ class ProductStock:
     @expiration_stock_date.setter
     def expiration_stock_date(self, new_expiration_stock_date):
         self._expiration_stock_date = new_expiration_stock_date
+
 
 class ProductRating:
     def _init_(self, stars_rating, comment_rating, rating_date, rating_update=None):
@@ -149,6 +210,7 @@ class ProductSubcategory:
             f"Descripcion: {self.description_subcategory}\n"
         )
 
+
 class ShoppingCart:
     def _init_(self):
         self.cart_items = []
@@ -183,8 +245,9 @@ class ShoppingCart:
 
         return totalPrice
 
+
 class Coupon:
-    def __init__(self, id_coupon, code_coupon, discount, expiration_date,restrictions):
+    def __init__(self, id_coupon, code_coupon, discount, expiration_date, restrictions):
         self._id_coupon = id_coupon
         self._code_coupon = code_coupon
         self._discount = discount
@@ -197,7 +260,7 @@ class Coupon:
 
     @property
     def code_coupon(self):
-        return  self._code_coupon
+        return self._code_coupon
 
     @property
     def discount(self):
@@ -236,11 +299,11 @@ class Coupon:
             # se deben traer los cupones desde la base de datos
         }
 
-        if(code_Coupon in valid_Coupons):
+        if (code_Coupon in valid_Coupons):
             coupon = valid_Coupons[code_Coupon]
             date = datetime.date.today()
 
-            if(date <= coupon._expiration_date):
+            if (date <= coupon._expiration_date):
                 return True
             else:
                 return False
@@ -265,6 +328,7 @@ class PriceHistory:
     @property
     def price_actual(self):
         return self.price_actual
+
     @price_actual.setter
     def price_actual(self, value):
         self.price_actual = value
@@ -272,6 +336,7 @@ class PriceHistory:
     @property
     def tax(self):
         return self.tax
+
     @tax.setter
     def tax(self, value):
         self.tax = value
@@ -279,6 +344,7 @@ class PriceHistory:
     @property
     def shipment(self):
         return self.shipment
+
     @shipment.setter
     def shipment(self, value):
         self.shipment = value
