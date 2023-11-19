@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
-from .models import ProductTest, Inventory
+
+from database.models.product import Product
+from .models import ProductBack, Admin
+from database.db_connection import session
+from database.models import product
 import json
 
-inventory = Inventory()
-
+admin = Admin()
 
 class ProductAPI:
 
@@ -17,24 +20,29 @@ class ProductAPI:
             product_data = json.loads(request.body)
 
             # Descompone el objeto JSON en sus atributos
-            product_id = int(product_data.get('prod_id'))
-            product_name = product_data.get('prod_name')
-            product_reference = product_data.get('prod_ref')
+            product_id = int(product_data.get('id_product'))
+            product_tax = int(product_data.get('id_tax'))
+            product_name = product_data.get('product_name')
+            product_reference_model = product_data.get('reference_model')
+            product_summary_desc = product_data.get('summary_description')
 
             date_str = product_data.get('release_date')
-            release_date = datetime.strptime(date_str, "%Y-%m-%d")
+            product_release_date = datetime.strptime(date_str, "%Y-%m-%d")
 
-            product_description = product_data.get('prod_description')
-            product_keywords = product_data.get('keywords')
-            product_ratings = product_data.get('ratings')
+            product_creation_date = datetime.now()
+            product_keywords = product_data.get('key_words')
+            product_link = product_data.get('product_link')
 
-            product = ProductTest(product_id, product_name, product_reference, release_date, product_description)
-            product._prod_key_words = product_keywords
-            product._prod_ratings = product_ratings
+            crt_product = ProductBack(product_id, product_tax, product_name, product_reference_model,
+                                      product_summary_desc, product_release_date, product_creation_date,
+                                      product_keywords, product_link)
 
-            inventory.add_product(product)
+            admin.add_product(crt_product)
 
-            print(product.__str__())
+            pd = Product(product_id, product_tax, product_name, product_reference_model,
+                            product_summary_desc, product_release_date, product_creation_date)
+
+            pd.create_product(session)
 
             return JsonResponse({'message': 'SIUUUUUUUUUU!'})
 
@@ -43,7 +51,7 @@ class ProductAPI:
     def get_product(request, prod_id):
         if request.method == 'GET':
             # Busca el producto en la lista de productos del inventario
-            product = inventory.get_product(prod_id)
+            #product = inventory.get_product(prod_id)
 
             if product is not None:
                 # Devuelve el producto como JSON
@@ -59,7 +67,7 @@ class ProductAPI:
             product_data = json.loads(request.body)
 
             # Crea un nuevo objeto ProductTest con los datos actualizados
-            new_product = ProductTest(
+            '''new_product = ProductTest(
                 prod_id=int(product_data.get('prod_id')),
                 prod_name=product_data.get('prod_name'),
                 prod_ref=product_data.get('prod_ref'),
@@ -73,16 +81,16 @@ class ProductAPI:
             if inventory.update_product(prod_id, new_product):
                 return JsonResponse({'message': 'Producto actualizado con éxito'})
             else:
-                return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+                return JsonResponse({'error': 'Producto no encontrado'}, status=404)'''
 
     @staticmethod
     @csrf_exempt
     def delete_product(request, prod_id):
-        if request.method == 'DELETE':
+        '''if request.method == 'DELETE':
             print(len(inventory.products))
             # Intenta eliminar el producto del inventario
             if inventory.delete_product(prod_id):
                 print(len(inventory.products))
                 return JsonResponse({'message': 'Producto eliminado con éxito'})
             else:
-                return JsonResponse({'error': 'Producto no encontrado'}, status=404)
+                return JsonResponse({'error': 'Producto no encontrado'}, status=404)'''
