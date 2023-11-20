@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articulos</title>
+    <title>Carro de Compras - UPTC STORE</title>
     <link rel="shortcut_icon" href="../images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/carritoV.css">
-    <script src="../carritoV.js"></script>
+    <link rel="stylesheet" href="../css/styles_CarroCompras.css">
+    <script src="../CarroCompras.js"></script>
 
 </head>
 <body>
@@ -108,6 +108,33 @@
     
 </div>
 
+<div class="overlay" id="epayco-overlay"></div>
+<div id="epayco-popup" class="popup">
+    <div class="epayco-payment-form">
+        <h2>Realiza tu pago con ePayco</h2>
+        <form>
+            <script src="https://checkout.epayco.co/checkout.js" class="epayco-button"
+                data-epayco-key="4bf5a941ed420c376a7fb0d45766244a"
+                data-epayco-response="https://ejemplo.com/respuesta.html"
+                data-epayco-confirmation="https://ejemplo.com/confirmacion">
+                </script>
+
+        </form>
+    </div>
+</div>
+
+<div class="overlay" id="nequi-overlay"></div>
+<div id="nequi-popup" class="popup" style="display: none;">
+    <div class="nequi-payment-form">
+        <h2>Realiza tu pago con Nequi</h2>
+        <form>
+            <label for="phone">Número de Teléfono:</label>
+            <input type="text" id="phone" placeholder="Ingresa tu número de teléfono">
+            <button id="send-notification-button">Enviar Notificación</button>
+        </form>
+    </div>
+</div>
+
 </div>
 <div class="payment-section2">
     <div class="title2">
@@ -122,4 +149,6 @@
         <p class="security-text">Si tu artículo no llega o no es igual a la descripción nosotros nos encargamos, compra con seguridad, compra con calidad.</p> 
     </div>  
 
+
+    <script type=«text/javascript» src=»https://checkout.epayco.co/checkout.js»></script> 
 </body>
