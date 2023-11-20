@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    text-align: center;
+}
+
+.stage {
+    width: 30%;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.stage i {
+    font-size: 500px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.stage i.fa-solid {
+    font-size: 120px; /* Cambia este valor al tamaño que desees */
+}
+
+
+.stage i:hover {
+    cursor: pointer;
+}
+
+.shipment-progress {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.status-line {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.status-line svg {
+    fill: green;
+    width: 40px;
+    height: 40px;
+    display: inline;
+}
+
+
+.stage.completed .status-line svg {
+    display: inline; 
+}
+
+
+.info-container {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 80px;
+    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo opaco */
+    padding: 20px; /* Agregar espacio interno para separar el contenido del borde */
+    border-radius: 10px; /* Redondear los bordes */
+}
+
+.info-container h2{
+    margin-bottom: 20px;
+    
+}
+
+.info-container p{
+    margin-bottom: 10px;
+    
+}
+
+.info-container img{
+    width: 100px;
+    height: 100px;
+    
+}
+
+
+select, textarea {
+    width: 300px; /* Reducir el ancho del textarea */
+    height: 100px; /* Reducir la altura del textarea */
+    padding: 10px;
+    margin-top: 5px;    
+}
+
+.customer-service img {
+    max-width: 80%;
+}
+
+.button-comentario{
+    border: none;
+    background-color: #3498db; /* Cambiar el color de fondo del botón */
+    color: white; /* Cambiar el color del texto del botón */
+    padding: 10px 20px; /* Ajustar el padding para que el botón sea más pequeño */
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0; /* Centrar el botón y ajustar el margen */
+    border-radius: 5px; /* Agregar bordes redondeados */
+}
+
+.valoraciones {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 10px; 
+    margin-top: 10px; 
+}
+
+
+.estrellas {
+    font-size: 50px;
+    margin-top: 5px;
+    margin-right: 1px;
+}
+
+.estrella {
+    color: #FFD700; /* Color dorado para las estrellas */
+    font-size: 50px;
+    cursor: pointer;
+
+}
+
+.user-feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+
+@media (max-width: 569px) {
+
+
+/* Modificar la disposición de los estados para mostrarlos en columna */
+.shipment-progress {
+    flex-direction: column; /* Mostrar los estados en columna */
+}
+
+/* Ajustar el ancho y centrar los contenedores de estado */
+.stage {
+    width: 80%; /* Reducir el ancho para dejar más espacio */
+    margin: 10px auto; /* Centrar los contenedores */
+}
+
+/* Estilos para pantallas de 569px a 1023px */
+
+/* Modificar el tamaño del ícono en la clase .stage i */
+.stage i {
+    font-size: 150px; /* Cambia el tamaño a 150px o el valor deseado */
+}
+.info-container {
+    flex-direction: column; /* Mostrar contenido en columna */
+    align-items: center; /* Centrar elementos */
+    margin-left: 5px; /* Reducir margen izquierdo */
+    margin-right: 5px; /* Reducir margen derecho */
+    margin-bottom: 30px; /* Reducir espacio inferior */
+}
+
+.info-container h2, .info-container p {
+    text-align: center; /* Centrar texto */
+}
+
+/* Ajustar el tamaño del textarea en dispositivos de tamaño mediano */
+select, textarea {
+    width: 90%; /* Ocupar el 90% del ancho disponible */
+    height: 100px; /* Mantener la altura del textarea */
+    margin-top: 10px; /* Espacio superior */
+}
+
+.button-comentario {
+    margin: 20px auto 10px; /* Centrar el botón y ajustar el margen */
+    width: 80%; /* Ocupar el 80% del ancho disponible */
+}
+/* Modificar el tamaño de las estrellas en dispositivos medianos */
+.estrellas {
+    font-size: 40px; /* Reducir tamaño de las estrellas */
+}
+
+/* Modificar el tamaño de la estrella individual en dispositivos medianos */
+.estrella {
+    font-size: 20px; /* Reducir tamaño de la estrella individual */
+}
+
+
+}
