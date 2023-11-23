@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles_Seg_Envio.css">
+    <title>Seguimiento de Envío</title>
+</head>
+
+<body>
+
+    <div id="cabeceraContainer">
+        <iframe src="../html/Cabecera_UPTCSTORE.html" frameborder="0" style="width: 100%"></iframe>
+    </div>
+
+    <div class="shipment-progress">
+        <div class="stage">
+            <i class="fa-solid fa-building"></i>
+            <div class="status-line">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 6.6l-9.9 9.9-4.1-4.1-2.4 2.4 6.5 6.5 12-12z" />
+                </svg>
+            </div>
+        </div>
+    
+        <div class="stage">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div class="status-line">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 6.6l-9.9 9.9-4.1-4.1-2.4 2.4 6.5 6.5 12-12z" />
+                </svg>
+            </div>
+        </div>
+    
+        <div class="stage">
+            <i class="fa-solid fa-location-dot"></i>
+            <div class="status-line">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 6.6l-9.9 9.9-4.1-4.1-2.4 2.4 6.5 6.5 12-12z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="info-container">
+        <div class="product-info">
+            <h2>Descripción del Producto</h2>
+            <img src="../images/SN.webp" alt="Producto" id="largeImage">
+            <p>Nombre Producto: XXXXX</p>
+            <p>Precio: $99.99 COP</p>
+            <p>Precio Envio: $99.99 COP</p>
+            <p>TOTAL: $99.99 COP</p>
+            <p>Medio de Pago: XXXX</p>
+        </div>
+        <div class="shipping-info">
+            <h2>Información de Entrega</h2>
+            <p>Nombre Cliente: XXXX</p>
+            <p>Dirección de Entrega: 123 Calle Principal</p>
+            <p>Ciudad o Municipio: XXXX</p>
+        </div>
+        <div class="carrier-info">
+            <h2>Información de la Transportadora</h2>
+            <p>Transportadora: Transport Express</p>
+            <p>Contacto: XXXXX</p>
+        </div>
+        <div class="delivery-info">
+            <h2>Fecha de Entrega Estimada</h2>
+            <p>Fecha Estimada: 2023-10-20</p>
+            <p>Fecha de Entrega: 2023-10-21</p>
+        </div>
+    </div>
+    
+    <div class="user-feedback">
+        <h2>Calificación del envio y comentarios </h2>
+        <div class="valoraciones">
+            <span id="promedio2">4.5</span>
+            <div class="estrellas-solo-lectura">
+                <span class="estrella">&#9734;</span>
+                <span class="estrella">&#9734;</span>
+                <span class="estrella">&#9734;</span>
+                <span class="estrella">&#9734;</span>
+                <span class="estrella">&#9734;</span>
+        </div>
+
+        <textarea placeholder="Escribe tu comentario aquí"></textarea>
+        <button class = "button-comentario">Guardar</button>
+    </div>
+    </div>
+    <script src="https://kit.fontawesome.com/df979b5c5b.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
