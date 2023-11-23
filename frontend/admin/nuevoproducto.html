@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin System</title>
+
+  <!-- <base href="https://admin.uboxtiendavirtual.com/"> -->
+
+  <link rel="icon" href="views/assets/img/template/icono.png">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="views/assets/plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="views/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+   <!-- Select2 -->
+  <link rel="stylesheet" href="views/assets/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="views/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Material Preloader -->
+  <link rel="stylesheet" href="views/assets/plugins/material-preloader/material-preloader.css">
+  <!-- Notie Alert -->
+  <link rel="stylesheet" href="views/assets/plugins/notie/notie.css">
+  <!-- Linear Icons -->
+  <link rel="stylesheet" href="views/assets/plugins/linearicons/linearicons.css">
+  <!-- Tags Input -->
+  <link rel="stylesheet" href="views/assets/plugins/tags-input/tags-input.css">
+   <!-- summernote -->
+  <link rel="stylesheet" href="views/assets/plugins/summernote/summernote-bs4.min.css">
+   <!-- dropzone-->
+  <link rel="stylesheet" href="views/assets/plugins/dropzone/dropzone.css">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="views/assets/plugins/adminlte/css/adminlte.min.css">
+   <!-- Template CSS -->
+  <link rel="stylesheet" href="views/assets/custom/template/template.css">
+
+  <!-- jQuery -->
+  <script src="views/assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="views/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="views/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="views/assets/plugins/adminlte/js/adminlte.min.js"></script>
+  <!-- Bootstrap Switch -->
+  <script src="views/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+  <!-- Select2 -->
+  <script src="views/assets/plugins/select2/js/select2.full.min.js"></script>
+  <!-- Material Preloader -->
+  <!-- https://www.jqueryscript.net/loading/Google-Inbox-Style-Linear-Preloader-Plugin-with-jQuery-CSS3.html -->
+  <script src="views/assets/plugins/material-preloader/material-preloader.js"></script>
+  <!-- Notie Alert -->
+  <!-- https://jaredreich.com/notie/ -->
+  <!-- https://github.com/jaredreich/notie -->
+  <script src="views/assets/plugins/notie/notie.min.js"></script>
+  <!-- Sweet Alert -->
+  <!-- https://sweetalert2.github.io/ -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- Tags Input -->
+  <!-- https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/ -->
+  <script src="views/assets/plugins/tags-input/tags-input.js"></script>
+
+  <!-- Summernote 
+  https://github.com/summernote/summernote/-->
+  <script src="views/assets/plugins/summernote/summernote-bs4.min.js"></script>
+
+  <!-- Dropzone
+  https://docs.dropzone.dev/-->
+  <script src="views/assets/plugins/dropzone/dropzone.js"></script>
+
+
+  
+  <!-- Chart -->
+  <script src="views/assets/plugins/chart/js/Chart.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>-->
+  <!--<script src="views/assets/plugins/chart/js/Chart1.min.js"></script>-->
+
+  <!-- jQuery Knob Chart -->
+  <script src="views/assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+
+  <script src="views/assets/custom/alerts/alerts.js"></script>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+
+<!-- Site wrapper -->
+<div class="wrapper">
+  
+  <!-- Navbar -->
+
+ <nav class="main-header navbar navbar-expand navbar-warning navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      
+      <!-- message Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="/messages">
+          <i class="far fa-comments"></i>            
+        </a>
+      </li>
+
+      <!-- Notifications Dropdown Menu -->
+      <!-- <li class="nav-item dropdown">     
+        <a class="nav-link"  href="/disputes">
+          <i class="far fa-bell"></i>                
+        </a>
+       
+      </li> -->
+
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/logout" role="button">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav> -->
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-light-warning elevation-4">
+    
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link navbar-warning">
+      <img src="views/assets/img/template/logo_light.png" style="opacity: .8">
+	<!--<span class="brand-text font-weight-light">AdminLTE 3</span> -->
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+          <a href="#" class="d-block">Admin</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+          <li class="nav-item">
+            <a href="home.html" class="nav-link ">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Home
+              </p>
+            </a>
+          </li>
+
+           <li class="nav-item">
+            <a href="administradores.html" class="nav-link ">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p>
+                Admins
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="categorias.html" class="nav-link ">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Categories
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="productos.html" class="nav-link active">
+              <i class="nav-icon fas fa-shopping-bag"></i>
+              <p>
+                Products
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="ordenes.html" class="nav-link ">
+              <i class="nav-icon fas fa-shopping-basket"></i>
+              <p>
+                Orders
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="ventas.html" class="nav-link ">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Sales
+              </p>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Products</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+
+          <li class="breadcrumb-item"><a href="productos.html">Products</a></li><li class="breadcrumb-item active">new</li>  
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content pb-1">
+
+  <div class="container-fluid">
+
+    
+
+
+<div class="card card-dark card-outline">
+
+	<form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+	
+		<div class="card-header">
+
+						
+			<div class="col-md-8 offset-md-2">	
+
+				<label class="text-danger float-right"><sup>*</sup> Required</label>
+
+
+				<!--=====================================
+                Nombre del producto
+                ======================================-->
+				
+				<div class="form-group mt-2">
+					
+					<label>Product Name <sup class="text-danger">*</sup></label>
+
+					<input 
+					type="text" 
+					class="form-control"
+					pattern="[0-9A-Za-zñÑáéíóúÁÉÍÓÚ ]{1,50}"
+					onchange="validateRepeat(event,'text&number','products','name_product')"
+					maxlength="50"
+					name="name-product"
+					required>
+
+					<div class="valid-feedback">Valid.</div>
+            		<div class="invalid-feedback">Please fill out this field.</div>
+
+				</div>
+
+
+				<!--=====================================
+                Url de la tienda
+                ======================================-->
+
+				<div class="form-group mt-2">
+					
+					<label>Product Url <sup class="text-danger">*</sup></label>
+
+					<input 
+					type="text" 
+					class="form-control"
+					readonly
+					name="url-name_product"
+					required>
+
+				</div>
+
+				<!--=====================================
+		        Categoría
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		            
+		            <label>Category<sup class="text-danger">*</sup></label>
+
+		            
+		            <div class="form-group">
+		                
+		                <select
+		                class="form-control select2"
+		                name="name-category"
+		                style="width:100%"
+		                onchange="changeCategory(event, 'products')"
+		                required>
+
+		                    <option value="">Select Category</option>
+
+		                    	
+
+		                        <option value="1_computacion-accesorios">Tecnología</option>
+		                      
+		                    	
+
+		                        <option value="2_accesorios-vehiculos">Vehículos</option>
+		                      
+		                    	
+
+		                        <option value="5_liquidacion">Liquidacion</option>
+		                      
+		                    
+		                </select>
+
+		                <div class="valid-feedback">Valid.</div>
+            			<div class="invalid-feedback">Please fill out this field.</div>
+
+		            </div>
+
+		        </div>
+
+				
+
+		        <!--=====================================
+		        Precio de venta, precio de envío, dias de entrega y stock
+		        ======================================-->
+
+		         <div class="form-group mt-2">
+		         	
+		         	 <div class="row mb-3">
+
+		         	 	<!--=====================================
+		                Precio de venta
+		                ======================================-->
+		                
+		                <div class="col-12 col-lg-3">
+		                    
+		                    <label>Product Price<sup class="text-danger">*</sup></label>
+
+	                        <input type="number"
+	                        class="form-control"
+	                        name="price-product"
+	                        min="0"
+	                        step="any"
+	                        pattern="[.\\,\\0-9]{1,}"
+	                        onchange="validateJS(event, 'numbers')"
+	                        required>
+	                    
+	                        <div class="valid-feedback">Valid.</div>
+	                        <div class="invalid-feedback">Please fill out this field.</div>
+       
+
+		                </div>
+
+		                <!--=====================================
+		                Precio de envío
+		                ======================================-->
+
+		                <div class="col-12 col-lg-3">
+		                    
+		                    <label>Product Shipping<sup class="text-danger">*</sup></label>
+
+	                        <input type="number"
+	                        class="form-control"
+	                        name="shipping-product"
+	                        min="0"
+	                        step="any"
+	                        pattern="[.\\,\\0-9]{1,}"
+	                         onchange="validateJS(event, 'numbers')"
+	                        required>
+	                    
+	                        <div class="valid-feedback">Valid.</div>
+	                        <div class="invalid-feedback">Please fill out this field.</div> 
+
+		                </div>
+
+		                <!--=====================================
+		                Stock
+		                ======================================-->
+
+		                <div class="col-12 col-lg-3">
+		                    
+		                    <label>Stock<sup class="text-danger">*</sup> (Max:100 unit)</label>
+
+	                        <input type="number"
+	                        class="form-control"
+	                        name="stock-product"
+	                        min="0"
+	                        max="100"
+	                        pattern="[0-9]{1,}"
+	                        onchang onchange="validateJS(event, 'numbers')"
+	                        required>
+	                    
+	                        <div class="valid-feedback">Valid.</div>
+	                        <div class="invalid-feedback">Please fill out this field.</div>  
+
+		                     
+
+		                </div>
+		
+		         	 </div>
+
+		        </div>
+
+		        <!--=====================================
+                Imagen del producto
+                ======================================-->
+
+				<div class="form-group mt-2">
+					
+					<label>Product Image <sup class="text-danger">*</sup></label>
+			
+					<label for="customFile" class="d-flex justify-content-center">
+						
+						<figure class="text-center py-3">
+							
+							<img src="https://uboxtiendavirtual.com/views/img/products/default/default-image.jpg" class="img-fluid changeImage" style="width:150px">
+
+						</figure>
+
+					</label>
+
+					<div class="custom-file">
+						
+						<input 
+						type="file" 
+						id="customFile" 
+						class="custom-file-input"
+						accept="image/*"
+						onchange="validateImageJS(event,'changeImage')"
+						name="image-product"
+						required>
+
+						<div class="valid-feedback">Valid.</div>
+            			<div class="invalid-feedback">Please fill out this field.</div>
+
+						<label for="customFile" class="custom-file-label">Choose file</label>
+
+					</div>
+
+				</div>
+
+
+		        <!--=====================================
+		        Descripción del producto
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		            
+		            <label>Product Description<sup class="text-danger">*</sup></label>
+
+		            <textarea
+		            class="summernote"
+		            name="description-product"
+		            required
+		            ></textarea>
+
+		            <div class="valid-feedback">Valid.</div>
+		            <div class="invalid-feedback">Please fill out this field.</div>
+
+		        </div>
+
+		        <!--=====================================
+                Palabras Claves
+                ======================================-->
+				
+				<div class="form-group mt-2">
+					
+					<label>Tags Product</label>
+
+					<input 
+					type="text" 
+					class="form-control tags-input"
+					pattern='[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\"\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]{1,}'
+					onchange="validateJS(event,'regex')"
+					name="tags-product"
+					required>
+
+					<div class="valid-feedback">Valid.</div>
+            		<div class="invalid-feedback">Please fill out this field.</div>
+
+				</div>	
+
+				<!--=====================================
+		        Resumen del producto
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		         	
+		        	<label>Product Summary<sup class="text-danger">*</sup> Ex: 20 hours of portable capabilities</label>
+
+		        	<input type="hidden" name="inputSummary" value="1">
+
+		        	<div class="input-group mb-3 inputSummary">
+		        	 	
+		        		 <div class="input-group-append">
+		        		 	<span class="input-group-text">
+		        		 		<button type="button" class="btn btn-danger btn-sm border-0" onclick="removeInput(0,'inputSummary')">&times;</button>
+		        		 	</span>
+		        		 </div>
+
+		        		<input
+		                class="form-control py-4" 
+		                type="text"
+		                name="summary-product_0"
+		                pattern='[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\"\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]{1,}'
+		                onchange="validateJS(event,'regex')"
+		                required>
+
+		                <div class="valid-feedback">Valid.</div>
+                		<div class="invalid-feedback">Please fill out this field.</div>
+
+		        	</div>
+
+		        	<button type="button" class="btn btn-primary mb-2" onclick="addInput(this, 'inputSummary')">Add Summary</button>
+
+		        </div>
+
+		        <!--=====================================
+		        Detalles del producto
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		         	
+		        	<label>Product Details<sup class="text-danger">*</sup> Ex: <strong>Title:</strong> Bluetooth, <strong>Value:</strong> Yes</label>
+
+		        	<input type="hidden" name="inputDetails" value="1">
+
+		        	<div class="row mb-3 inputDetails">
+
+		        		<!--=====================================
+               			Entrada para el título del detalle
+                		======================================--> 
+
+                		<div class="col-12 col-lg-6 input-group">
+		        	 	
+			        		 <div class="input-group-append">
+			        		 	<span class="input-group-text">
+			        		 		<button type="button" class="btn btn-danger btn-sm border-0" onclick="removeInput(0,'inputDetails')">&times;</button>
+			        		 	</span>
+			        		 </div>
+
+			        		 <div class="input-group-append">
+			        		 	<span class="input-group-text">
+			        		 		Title:
+			        		 	</span>
+			        		 </div>
+
+			        		<input
+			                class="form-control py-4" 
+			                type="text"
+			                name="details-title-product_0"
+			                pattern='[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\"\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]{1,}'
+			                onchange="validateJS(event,'regex')"
+			                required>
+
+			                <div class="valid-feedback">Valid.</div>
+	                		<div class="invalid-feedback">Please fill out this field.</div>
+
+	                	</div>
+
+	                	<!--=====================================
+               			Entrada para valores del detalle
+                		======================================--> 
+
+                		<div class="col-12 col-lg-6 input-group">
+		        	 	
+			        		 <div class="input-group-append">
+			        		 	<span class="input-group-text">
+			        		 		Value:
+			        		 	</span>
+			        		 </div>
+
+			        		<input
+			                class="form-control py-4" 
+			                type="text"
+			                name="details-value-product_0"
+			                pattern='[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\"\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]{1,}'
+			                onchange="validateJS(event,'regex')"
+			                required>
+
+			                <div class="valid-feedback">Valid.</div>
+	                		<div class="invalid-feedback">Please fill out this field.</div>
+
+	                	</div>
+
+
+		        	</div>
+
+		        	<button type="button" class="btn btn-primary mb-2" onclick="addInput(this, 'inputDetails')">Add Detail</button>
+
+		        </div>
+
+		         <!--=====================================
+		        Especificaciones técnicas del producto
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		         	
+		        	<label>Product Specifications Ex: <strong>Type:</strong> Color, <strong>Values:</strong> Black, Red, White</label>
+
+		        	<input type="hidden" name="inputSpecifications" value="1">
+
+		        	<div class="row mb-3 inputSpecifications">
+
+		        		<!--=====================================
+               			Entrada para el tipo de especificacion
+                		======================================--> 
+
+                		<div class="col-12 col-lg-6 input-group">
+		        	 	
+			        		 <div class="input-group-append">
+			        		 	<span class="input-group-text">
+			        		 		<button type="button" class="btn btn-danger btn-sm border-0" onclick="removeInput(0,'inputSpecifications')">&times;</button>
+			        		 	</span>
+			        		 </div>
+
+			        		 <div class="input-group-append">
+			        		 	<span class="input-group-text">
+			        		 		Type:
+			        		 	</span>
+			        		 </div>
+
+			        		<input
+			                class="form-control py-4" 
+			                type="text"
+			                name="spec-type-product_0"
+			                pattern='[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\"\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]{1,}'
+			                onchange="validateJS(event,'regex')"
+			                >
+
+			                <div class="valid-feedback">Valid.</div>
+	                		<div class="invalid-feedback">Please fill out this field.</div>
+
+	                	</div>
+
+	                	<!--=====================================
+               			Entrada para valores de lae specificación
+                		======================================--> 
+
+                		<div class="col-12 col-lg-6 input-group">
+		        	 	
+	
+			        		<input
+			                class="form-control py-4 tags-input" 
+			                type="text"
+			                name="spec-value-product_0"
+			                pattern='[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\"\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]{1,}'
+			                onchange="validateJS(event,'regex')"
+			                >
+
+			                <div class="valid-feedback">Valid.</div>
+	                		<div class="invalid-feedback">Please fill out this field.</div>
+
+	                	</div>
+
+
+		        	</div>
+
+		        	<button type="button" class="btn btn-primary mb-2" onclick="addInput(this, 'inputSpecifications')">Add Specification</button>
+
+		        </div>
+
+		        <!--=====================================
+		        Galería del producto
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		        	
+		        	<label>Product Gallery: <sup class="text-danger">*</sup></label> 
+
+		        	<div class="dropzone mb-3">
+		        	 	
+		        		<div class="dz-message">
+		        			
+		        			Drop your images here, size max 500px * 500px
+
+		        		</div>
+
+		        	</div>
+
+		        	<input type="hidden" name="gallery-product">
+
+		        </div>
+
+		        <!--=====================================
+		        Video del producto
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		        	
+
+		        	<label>Product Video | Ex: <strong>Type:</strong> YouTube, <strong>Id:</strong> Sl5FaskVpD4</label> 
+
+		        	<div class="row mb-3"> 
+
+		        		<div class="col-12 col-lg-6 input-group mx-0 pr-0">
+
+		        			<div class="input-group-append">
+		                        <span class="input-group-text">
+		                            Type:
+		                        </span>
+		                    </div>
+
+		                    <select 
+		                    class="form-control"                               
+		                    name="type_video"
+		                    >
+		                        <option value="">Select Platform</option>
+		                        <option value="youtube">YouTube</option>
+		                        <option value="vimeo">Vimeo</option>
+
+		                    </select>
+
+		        		</div>
+
+		        		<div class="col-12 col-lg-6  input-group mx-0">
+		        			
+		        			<div class="input-group-append">
+		                        <span class="input-group-text">
+		                            Id:
+		                        </span>
+		                    </div>
+
+		                    <input
+		                    type="text"
+		                    class="form-control"                               
+		                    name="id_video"
+		                    pattern="[-\\(\\)\\=\\%\\&\\$\\;\\_\\*\\'\\#\\?\\¿\\!\\¡\\:\\,\\.\\0-9a-zA-ZñÑáéíóúÁÉÍÓÚ ]{1,100}"
+		                    maxlength="100"
+		                    onchange="validateJS(event,'regex')"
+		                    >
+
+		                    <div class="valid-feedback">Valid.</div>
+                    		<div class="invalid-feedback">Please fill out this field.</div>   
+
+		        		</div>
+
+		        	</div>
+
+
+		        </div>
+
+		          <!--=====================================
+		        Banner Top del producto
+		        ======================================--> 
+
+		        
+		                
+		                <!--=====================================
+		                H3 Tag
+		                ======================================-->
+
+		              
+
+		                <!--=====================================
+		                P1 Tag
+		                ======================================-->
+
+		             
+
+		                <!--=====================================
+		                H4 Tag
+		                ======================================-->
+
+		               
+		                 <!--=====================================
+		                P2 Tag
+		                ======================================-->
+
+		                
+
+		                <!--=====================================
+		                Span Tag
+		                ======================================-->
+
+		                
+
+		                 <!--=====================================
+		                Button Tag
+		                ======================================-->
+
+		           
+
+		                <!--=====================================
+		                IMG Tag
+		                ======================================-->
+
+		                
+
+		        <!--=====================================
+		        Banner por defecto del producto
+		        ======================================--> 
+
+
+		         <!--=====================================
+		        Slide Horizontal del producto
+		        ======================================--> 
+
+		      
+
+		        <!--=====================================
+		        Slide Vertical del producto
+		        ======================================--> 
+
+		      
+		         <!--=====================================
+		        Oferta del producto
+		        ======================================-->
+
+		        <div class="form-group mt-2">
+		            
+		            <label>Product Offer Ex: <strong>Type:</strong> Disccount, <strong>Percent %:</strong> 25, <strong>End offer:</strong> 30/06/2020</label>
+
+		            <div class="row mb-3">
+
+		                <!--=====================================
+		                Tipo de Oferta
+		                ======================================-->
+		                
+		                <div class="col-12 col-lg-4 form-group__content input-group mx-0 pr-0">
+		                    
+		                    <div class="input-group-append">
+		                        <span class="input-group-text">
+		                            Type:
+		                        </span>
+		                    </div>
+
+		                    <select
+		                    class="form-control"
+		                    name="type_offer"
+		                    onchange="changeOffer(event)">
+		                        
+		                        <option value="Discount">Discount</option>
+		                        <option value="Fixed">Fixed</option>
+
+		                    </select>
+
+		                    <div class="valid-feedback">Valid.</div>
+		                    <div class="invalid-feedback">Please fill out this field.</div>        
+
+		                </div>
+
+		                <!--=====================================
+		                El valor de la oferta
+		                ======================================-->
+
+		                <div class="col-12 col-lg-4 form-group__content input-group mx-0 pr-0">
+		                
+		                    <div class="input-group-append">
+		                       
+		                        <span 
+		                        class="input-group-text typeOffer">
+		                            Percent %:
+		                        </span>
+
+		                    </div>
+
+		                    <input type="number"
+		                    class="form-control"
+		                    name="value_offer"
+		                    min="0"
+		                    step="any"
+		                    pattern="[.\\,\\0-9]{1,}"
+		                     onchange="validateJS(event, 'numbers')">
+
+		                    <div class="valid-feedback">Valid.</div>
+		                    <div class="invalid-feedback">Please fill out this field.</div>     
+
+		                </div>
+
+		                <!--=====================================
+		                Fecha de vencimiento de la oferta
+		                ======================================-->
+
+		                <div class="col-12 col-lg-4 form-group__content input-group mx-0 pr-0">
+		                    
+		                    <div class="input-group-append">
+		                        <span class="input-group-text">
+		                            End Offer:
+		                        </span>
+		                    </div>
+
+		                    <input type="date"
+		                    class="form-control"
+		                    name="date_offer">
+
+		                    <div class="valid-feedback">Valid.</div>
+		                    <div class="invalid-feedback">Please fill out this field.</div>     
+
+		                </div>
+		                  
+
+		            </div>   
+
+		        </div>
+
+			</div>
+		
+		</div>
+
+		<div class="card-footer">
+			
+			<div class="col-md-8 offset-md-2">
+	
+				<div class="form-group mt-3">
+
+					<a href="productos.html" class="btn btn-light border text-left">Back</a>
+					
+					<button type="submit" class="btn bg-dark float-right saveBtn">Save</button>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+	</form>
+
+
+</div>  
+  </div>
+
+</section>    <!-- Content Header (Page header) -->
+  
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+  <div class="float-right d-none d-sm-block">
+    <b>Version</b> 1.0
+  </div>
+  <strong>Copyright &copy; 2023</strong> All rights reserved.
+</footer>
+</div>
+<!-- ./wrapper -->
+
+
+<script src="views/assets/custom/forms/forms.js"></script>
+
+</body>
+</html>
