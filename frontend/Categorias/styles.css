@@ -1,0 +1,1737 @@
+/* Reset y estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Variables de colores */
+:root {
+    --main-color: rgba(34, 120, 115, 1);
+    --back-color: rgba(238, 238, 238, 1);
+    --color-inputs: rgba(170, 170, 170, 1);
+    --color-text: rgba(0, 0, 0, 1);
+}
+
+/* Estilos del cuerpo del documento */
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/009/099/481/non_2x/white-color-blank-banner-template-with-curved-elements-abstract-background-for-website-landing-page-billboard-free-vector.jpg');
+    background-size: cover;
+    background-color: var(--back-color);
+}
+
+/* Estilos de la cabecera */
+header {
+    width: 100%;
+    min-width: 320px;
+    position: sticky;
+    top: 0;
+    background-color: var(--main-color);
+    z-index: 100;
+    box-shadow: 0px 5px 5px 0px rgba(30, 120, 116, 0.5);
+}
+
+/* Estilos de la barra de herramientas */
+.tools {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+}
+
+/* Estilos del logotipo */
+.logo {
+    background-image: url(images/logo.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Estilos de la barra de búsqueda */
+.search-bar {
+    width: 50%;
+    background-color: var(--back-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 90%;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-inputs);
+    color: var(--color-text);
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+/* Estilos de los botones */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--back-color);
+}
+
+/* Estilos del menú */
+menu ul {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+menu ul li {
+    color: var(--back-color);
+}
+
+/* Estilos de las etiquetas */
+.tags ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+    list-style: none;
+}
+
+.tags ul li {
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background-color: white;
+}
+
+/* Estilos de las tarjetas principales */
+.main-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-cards div img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos de las tarjetas combinadas */
+.combined-cards {
+    display: none;
+}
+
+.products {
+    margin-bottom: 40px;
+}
+
+.products h2 {
+    position: relative;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px 20px 0 20px;
+    font-size: 20px;
+    color: var(--main-color);
+    cursor: pointer;
+    transition: text-decoration 0.4s ease;
+}
+
+.products h2::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: var(--main-color);
+    bottom: calc(100% - 32px);
+    left: 20px;
+    transition: width 0.3s ease, bottom 0.4s ease;
+}
+
+.products h2:hover::before {
+    width: calc(100% - 40px);
+}
+
+.products-carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.prev-button, .next-button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    background-color: var(--main-color);
+    color: var(--back-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 200;
+    transition: box-shadow 0.3s;
+}
+
+.prev-button {
+    left: -20px;
+}
+
+.next-button {
+    right: -20px;
+}
+
+.prev-button:hover, .next-button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--main-color);
+}
+
+.products-carousel {
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    overflow-x: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    display: flex;
+    transition: transform 0.3s;
+}
+
+.product {
+    background-color: white;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    flex: 0 0 190px;
+    margin-right: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.product:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px var(--main-color);
+}
+
+.product img {
+    max-width: 100%;
+    max-height: 70%;
+}
+
+.description {
+    background-color: var(--back-color);
+    padding: 5px;
+}
+
+.description h3 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.description span {
+    font: 16px;
+    font-weight: bold;
+}
+
+.rating {
+    width: 100%;
+    max-height: 10%;
+}
+
+.rating img {
+    width: 100%;
+    height: 100%;
+}
+
+.products-container {
+    width: 80%;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+}
+
+.category {
+    flex: 0 0 30%;
+    transition: box-shadow 0.3s;
+}
+
+.category img {
+    width: 100%;
+}
+
+.category h3 {
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+    background-color: var(--back-color);
+}
+
+footer {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Estilos del menú desplegable */
+.menu-options .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Posiciona el menú debajo de la opción */
+    left: 50%; /* Centra el menú horizontalmente */
+    transform: translateX(-50%); /* Centra el menú horizontalmente */
+    background-color: white; /* Fondo blanco */
+    box-shadow: 0px 5px 5px 0px rgba(30, 120, 116, 0.5);
+    z-index: 101;
+    width: max-content; /* Ajusta el ancho al contenido más amplio */
+    min-width: 50%; /* Establece un ancho mínimo del 50% */
+}
+
+.menu-options .categories:hover .sub-menu {
+    display: flex;
+    flex-direction: column; /* Muestra las opciones de forma vertical */
+    align-items: center; /* Centra horizontalmente las opciones */
+}
+
+.menu-options .sub-menu li {
+    background-color: white; /* Fondo blanco para cada opción */
+    width: 100%; /* Ocupa todo el ancho del menú desplegable */
+}
+
+.menu-options .sub-menu li a {
+    text-decoration: none; /* Elimina la línea debajo del enlace */
+    color: var(--main-color); /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    display: block;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.menu-options .sub-menu li a:hover {
+    background-color: var(--main-color); /* Cambia el fondo al pasar el ratón */
+    color: white; /* Cambia el color del texto al pasar el ratón */
+}
+
+/* Estilos de las páginas individuales */
+/* Estilos específicos para la página de Electrónica */
+/* estilos para mejorar la apariencia general */
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.product-card {
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-card h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.product-card p {
+    color: #000000;
+    font-size: 14px;
+}
+
+.product-card span {
+    font-weight: bold;
+    color: #000000;
+    font-size: 16px;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: var(--main-color);
+    color: white;
+}
+
+body.electronica {
+    background-image: url('https://images.unsplash.com/photo-1554227231-54aa5db01c51?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* ruta de la imagen fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-position: center; /* Centra la imagen en el fondo */
+    color: #414040; /* Ajusta el color del texto para que sea legible en la imagen de fondo */
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%; 
+    background-color: white;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details p,
+.expanded-details span {
+    margin-bottom: 15px;
+}
+
+.expanded-details button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+/* estilo boton comprar del lado de la imagen*/
+.product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button:hover {
+    background-color: var(--main-color); /* Cambia el fondo al pasar el ratón */
+    color: rgb(71, 71, 71); /* Cambia el color del texto al pasar el ratón */
+}
+
+.product-details p {
+    text-align: justify;
+}
+.product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px; /* Ajusta el tamaño del precio */
+}
+.product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto; /* centra el botón en la parte inferior */
+}
+
+/* Estilos para la sección de Ropa y Accesorios */
+body.ropa-accesorios {
+    background-image: url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Ropa y Accesorios */
+.expanded-product.ropa-accesorios {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Ropa y Accesorios */
+.ropa-accesorios .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ropa-accesorios .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.ropa-accesorios .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.ropa-accesorios .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.ropa-accesorios .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+
+/* Estilos para la sección de Hogar y Jardín */
+body.hogar-jardin {
+    background-image: url('https://images.unsplash.com/photo-1493606278519-11aa9f86e40a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Hogar y Jardín */
+.expanded-product.hogar-jardin {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Hogar y Jardín */
+.hogar-jardin .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hogar-jardin .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.hogar-jardin .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.hogar-jardin .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.hogar-jardin .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+/* Estilos para la sección expandida del producto */
+.expanded-product {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%; 
+    background-color: white;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details p,
+.expanded-details span {
+    margin-bottom: 15px;
+}
+
+.expanded-details button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+/* estilo boton comprar del lado de la imagen*/
+.product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button:hover {
+    background-color: var(--main-color); /* Cambia el fondo al pasar el ratón */
+    color: rgb(71, 71, 71); /* Cambia el color del texto al pasar el ratón */
+}
+
+.product-details p {
+    text-align: justify;
+}
+.product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px; /* Ajusta el tamaño del precio */
+}
+.product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto; /* centra el botón en la parte inferior */
+}
+/* Estilos para la sección de Deportes y Aire libre */
+body.deportes-aire-libre {
+    background-image: url('https://plus.unsplash.com/premium_photo-1663951811661-68b0cf61baf5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Deportes y Aire libre */
+.expanded-product.deportes-aire-libre {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Deportes y Aire libre */
+.deportes-aire-libre .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.deportes-aire-libre .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.deportes-aire-libre .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.deportes-aire-libre .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.deportes-aire-libre .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%; 
+    background-color: white;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details p,
+.expanded-details span {
+    margin-bottom: 15px;
+}
+
+.expanded-details button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo botón comprar del lado de la imagen */
+.product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(71, 71, 71);
+}
+
+.product-details p {
+    text-align: justify;
+}
+
+.product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección de Juguetes y Juegos */
+body.juguetes-juegos {
+    background-image: url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Juguetes y Juegos */
+.expanded-product.juguetes-juegos {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Juguetes y Juegos */
+.juguetes-juegos .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.juguetes-juegos .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.juguetes-juegos .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.juguetes-juegos .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.juguetes-juegos .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%; 
+    background-color: white;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details p,
+.expanded-details span {
+    margin-bottom: 15px;
+}
+
+.expanded-details button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo botón comprar del lado de la imagen */
+.product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(71, 71, 71);
+}
+
+.product-details p {
+    text-align: justify;
+}
+
+.product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección de Salud y Belleza */
+body.salud-belleza {
+    background-image: url('https://images.unsplash.com/photo-1518655048521-f130df041f66?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Salud y Belleza */
+.expanded-product.salud-belleza {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Salud y Belleza */
+.salud-belleza .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.salud-belleza .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.salud-belleza .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.salud-belleza .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.salud-belleza .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%; 
+    background-color: white;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details img {
+    width: 100%;
+    max-height: 300px; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details p,
+.expanded-details span {
+    margin-bottom: 15px;
+}
+
+.expanded-details button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo botón comprar del lado de la imagen */
+.product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(71, 71, 71);
+}
+
+.product-details p {
+    text-align: justify;
+}
+
+.product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos específicos para la sección de Salud y Belleza */
+.salud-belleza-section {
+    /* background-color: #6de968; */
+    padding: 20px; /* Ajusta el padding  diseño */
+    text-align: center;
+}
+
+.salud-belleza-section h1 {
+    color: #000000; 
+    font-family: 'cursive', sans-serif; /* fuente al estilo artístico  */
+    font-size: 2em; /* tamaño según  diseño */
+}
+
+.salud-belleza-section p {
+    font-style: italic; 
+    color: #000000; 
+    font-size: 1.2em; 
+    margin-top: 10px; 
+}
+
+/* Estilos para la sección de Libros y Audiolibros */
+body.libros-audiolibros {
+    background-image: url('https://images.unsplash.com/photo-1667312939934-60fc3bfa4ec0?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Libros y Audiolibros */
+.expanded-product.libros-audiolibros {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Libros y Audiolibros */
+.libros-audiolibros .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.libros-audiolibros .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.libros-audiolibros .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.libros-audiolibros .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.libros-audiolibros .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%;
+    background-color: white;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details p,
+.expanded-details span {
+    margin-bottom: 15px;
+}
+
+.expanded-details button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo botón comprar del lado de la imagen */
+.product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(71, 71, 71);
+}
+
+/* Estilos específicos para la sección de Libros y Audiolibros */
+.libros-audiolibros-section {
+    /* background-color: #6de968; */
+    padding: 20px; /* Ajusta el padding según diseño */
+    text-align: center;
+}
+
+.libros-audiolibros-section h1 {
+    color: #ffffff;
+    font-family: 'cursive', sans-serif; /* Fuente al estilo artístico */
+    font-size: 2em; /* Tamaño según diseño */
+}
+
+.libros-audiolibros-section p {
+    font-style: italic; 
+    color: #ffffff; 
+    font-size: 1.2em; 
+    margin-top: 10px; 
+}
+
+/* Estilos para la sección de Instrumentos Musicales */
+body.instrumentos-musicales {
+    background-image: url('https://images.unsplash.com/photo-1623998021451-306e52f35634?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Instrumentos Musicales */
+.expanded-product.instrumentos-musicales {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Instrumentos Musicales */
+.instrumentos-musicales .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.instrumentos-musicales .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.instrumentos-musicales .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.instrumentos-musicales .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.instrumentos-musicales .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product.instrumentos-musicales {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details.instrumentos-musicales {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%;
+    background-color: white;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details.instrumentos-musicales h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details.instrumentos-musicales img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details.instrumentos-musicales p,
+.expanded-details.instrumentos-musicales span {
+    margin-bottom: 15px;
+}
+
+.expanded-details.instrumentos-musicales button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details.instrumentos-musicales button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button.instrumentos-musicales {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo botón comprar del lado de la imagen */
+.product-card.instrumentos-musicales button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card.instrumentos-musicales button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button.instrumentos-musicales:hover {
+    background-color: var(--main-color);
+    color: rgb(71, 71, 71);
+}
+
+/* Estilos específicos para la sección de Instrumentos Musicales */
+.instrumentos-musicales-section {
+    /* background-color: #6de968; */
+    padding: 20px; /* Ajusta el padding según diseño */
+    text-align: center;
+}
+
+.instrumentos-musicales-section h1 {
+    color: #000000;
+    font-family: 'cursive', sans-serif; /* Fuente al estilo artístico */
+    font-size: 2em; /* Tamaño según diseño */
+}
+
+.instrumentos-musicales-section p {
+    font-style: italic; 
+    color: #000000; 
+    font-size: 1.2em; 
+    margin-top: 10px; 
+}
+
+/* Estilos para la sección de Artes y Manualidades */
+body.artes-manualidades {
+    background-image: url('https://images.unsplash.com/photo-1499892477393-f675706cbe6e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #000000;
+}
+
+/* Estilos para la sección expandida del producto de Artes y Manualidades */
+.expanded-product.artes-manualidades {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Artes y Manualidades */
+.artes-manualidades .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.artes-manualidades .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.artes-manualidades .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.artes-manualidades .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.artes-manualidades .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product.artes-manualidades {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details.artes-manualidades {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%;
+    background-color: white;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details.artes-manualidades h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details.artes-manualidades img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details.artes-manualidades p,
+.expanded-details.artes-manualidades span {
+    margin-bottom: 15px;
+}
+
+.expanded-details.artes-manualidades button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details.artes-manualidades button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button.artes-manualidades {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo botón comprar del lado de la imagen */
+.product-card.artes-manualidades button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card.artes-manualidades button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button.artes-manualidades:hover {
+    background-color: var(--main-color);
+    color: rgb(71, 71, 71);
+}
+
+/* Estilos específicos para la sección de Artes y Manualidades */
+.artes-manualidades-section {
+    /* background-color: #6de968; */
+    padding: 20px; /* Ajusta el padding según diseño */
+    text-align: center;
+}
+
+.artes-manualidades-section h1 {
+    color: #000000;
+    font-family: 'cursive', sans-serif; /* Fuente al estilo artístico */
+    font-size: 2em; /* Tamaño según diseño */
+}
+
+.artes-manualidades-section p {
+    font-style: italic;
+    color: #000000;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+
+/* Estilos para la sección de Alimentos y Bebidas */
+body.alimentos-bebidas {
+    background-image: url('https://images.unsplash.com/photo-1447078806655-40579c2520d6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #ffffff;
+}
+
+/* Estilos para la sección expandida del producto de Alimentos y Bebidas */
+.expanded-product.alimentos-bebidas {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilos adicionales para la sección de Alimentos y Bebidas */
+.alimentos-bebidas .product-card button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.alimentos-bebidas .product-card button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.alimentos-bebidas .buy-button:hover {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0);
+}
+
+.alimentos-bebidas .product-details span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.alimentos-bebidas .product-details button {
+    display: block;
+    margin: auto;
+    margin-top: auto;
+}
+
+/* Estilos para la sección expandida del producto */
+.expanded-product.alimentos-bebidas {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.expanded-details.alimentos-bebidas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 70%;
+    background-color: rgb(252, 252, 252)55, 255, 255;
+    color: #000000;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.expanded-details.alimentos-bebidas h3 {
+    margin-bottom: 15px;
+}
+
+.expanded-details.alimentos-bebidas img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.expanded-details.alimentos-bebidas p,
+.expanded-details.alimentos-bebidas span {
+    margin-bottom: 15px;
+}
+
+.expanded-details.alimentos-bebidas button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-details.alimentos-bebidas button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.close-button.alimentos-bebidas {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo botón comprar del lado de la imagen */
+.product-card.alimentos-bebidas button {
+    background-color: var(--main-color);
+    color: rgb(184, 150, 150);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card.alimentos-bebidas button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+.buy-button.alimentos-bebidas:hover {
+    background-color: var(--main-color);
+    color: rgb(71, 71, 71);
+}
+
+/* Estilos específicos para la sección de Alimentos y Bebidas */
+.alimentos-bebidas-section {
+    /* background-color: #6de968; */
+    padding: 20px; /* Ajusta el padding según diseño */
+    text-align: center;
+}
+
+.alimentos-bebidas-section h1 {
+    color: #ffffff;
+    font-family: 'cursive', sans-serif; /* Fuente al estilo artístico */
+    font-size: 2em; /* Tamaño según diseño */
+}
+
+.alimentos-bebidas-section p {
+    font-style: italic;
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

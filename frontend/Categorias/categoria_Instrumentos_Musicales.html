@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,500;0,600;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <title>Categoria Instrumentos Musicales</title>
+    <style>
+        /* Estilos específicos para la galería de productos */
+        .product-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product-card {
+            width: 250px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ddd;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .product-card h3 {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .product-card p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .product-card span {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body class="instrumentos-musicales">
+    <!-- Contenido del encabezado -->
+    <header class="header">
+        <div class="tools">
+            <a class="logo" href="index.html"></a>
+
+            <div class="search-bar">
+                <input type="text" name="search-input" placeholder="Búsqueda...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="location button">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div class="cart-shopping button">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <div class="bars-menu button" id="bars-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <menu class="menu" id="menu">
+            <ul class="menu-options">
+                <li class="home">Inicio</li>
+                <li class="categories">
+                    Categorías
+                    <ul class="sub-menu">
+                        <li><a href="categoria_electronica.html">Electrónica</a></li>
+                        <li><a href="categoria_Ropa_y_Accesorios.html">Ropa y Accesorios</a></li>
+                        <li><a href="categoria_Hogar_y_Jardin.html">Hogar y Jardín</a></li>
+                        <li><a href="categoria_Juguetes_y_Juegos.html">Juguetes y Juegos</a></li>
+                        <li><a href="categoria_Salud_Y_Belleza.html">Salud y Belleza</a></li>
+                        <li><a href="categoria_Libros_Y_Audiolibros.html">Libros y Audiolibros</a></li>
+                        <li><a href="categoria_Instrumentos_Musicales.html">Instrumentos Musicales</a></li>
+                        <li><a href="categoria_Arte_Y_Manualidades.html">Arte y Manualidades</a></li>
+                        <li><a href="categoria_Alimentos_Y_Bebidas.html">Alimentos y Bebidas</a></li>
+                    </ul>
+                </li>
+                <li class="promo">Promociones</li>
+                <li class="help">Ayuda/PQRS/TyC</li>
+            </ul>
+        </menu>
+    </header>
+    <main>
+        <!-- Contenido específico de la página de Instrumentos Musicales -->
+        <div class="instrumentos-musicales-section">
+            <center>
+                <h1>INSTRUMENTOS MUSICALES</h1>
+            </center>
+            <center>
+                <p>Descubre nuestra variedad de instrumentos musicales para todos los niveles y estilos.</p>
+            </center>
+        </div>
+
+        <!-- Galería de productos -->
+<div class="product-gallery">
+    <!-- Producto 1 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://plus.unsplash.com/premium_photo-1671934974861-f7f1c245255e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Guitarra Acústica Profesional">
+        <div class="product-details">
+            <h3>Guitarra Acústica Profesional</h3>
+            <p>Guitarra acústica de alta calidad para músicos profesionales. Incluye funda y cuerdas de repuesto.</p>
+            <span>$499.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1524578471438-cdd96d68d82c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Teclado Electrónico de 88 Teclas">
+        <div class="product-details">
+            <h3>Teclado Electrónico de 88 Teclas</h3>
+            <p>Teclado electrónico con teclas contrapesadas para una experiencia de piano realista. Incluye soporte y pedal.</p>
+            <span>$699.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://plus.unsplash.com/premium_photo-1661713868730-4e03db53b02b?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Batería Completa para Principiantes">
+        <div class="product-details">
+            <h3>Batería Completa para Principiantes</h3>
+            <p>Juego completo de batería para principiantes. Incluye platillos, baquetas y taburete.</p>
+            <span>$299.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1623123776919-e5208e9b0b47?q=80&w=1514&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Saxofón Alto de Estudio">
+        <div class="product-details">
+            <h3>Saxofón Alto de Estudio</h3>
+            <p>Saxofón alto ideal para estudiantes avanzados. Incluye estuche y accesorios.</p>
+            <span>$799.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VmlvbCVDMyVBRG58ZW58MHx8MHx8fDA%3D" alt="Imagen de Violín Profesional">
+        <div class="product-details">
+            <h3>Violín Profesional</h3>
+            <p>Violín de alta calidad para músicos profesionales. Fabricado con maderas selectas y excelente sonido.</p>
+            <span>$899.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1431069767777-c37892aa0a07?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Amplificador de Guitarra">
+        <div class="product-details">
+            <h3>Amplificador de Guitarra</h3>
+            <p>Amplificador de guitarra con múltiples efectos y potencia ajustable. Perfecto para ensayos y presentaciones.</p>
+            <span>$249.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+</div>
+<!-- Sección expandida del producto -->
+<div id="expanded-product" class="expanded-product">
+    <span class="close-button" onclick="closeProductDetails()">×</span>
+    <div id="expanded-details" class="expanded-details">
+        <h3 id="expanded-title"></h3>
+        <img id="expanded-img" src="" alt="Product">
+        <p id="expanded-description"></p>
+        <span id="expanded-price"></span>
+        <button onclick="buyProduct()">Comprar ahora</button>
+    </div>
+</div>
+<script>
+    function expandProduct(element) {
+        // Obtener detalles del producto
+        var title = element.querySelector('h3').innerText;
+        var description = element.querySelector('p').innerText;
+        var price = element.querySelector('span').innerText;
+        var imgSrc = element.querySelector('img').src;
+
+        // Mostrar detalles expandidos
+        document.getElementById('expanded-title').innerText = title;
+        document.getElementById('expanded-description').innerText = description;
+        document.getElementById('expanded-price').innerText = price;
+        document.getElementById('expanded-img').src = imgSrc;
+        document.getElementById('expanded-product').style.display = 'flex';
+    }
+
+    function closeProductDetails() {
+        // Ocultar detalles expandidos
+        document.getElementById('expanded-product').style.display = 'none';
+    }
+</script>
+</main>
+    <script src="https://kit.fontawesome.com/df979b5c5b.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,210 @@
+@import 'styles.css';
+
+@media (min-width: 1024px) and (orientation: landscape) {
+    .tools {
+        font-size: 18px;
+    }
+
+    .tools a,
+    .tools div {
+        margin: 10px;
+    }
+
+    .logo {
+        width: 108px;
+        height: 75px;
+        border: 1px solid red;
+    }
+
+    .search-bar {
+        height: 45px;
+        min-width: 512px;
+        max-width: 768px;
+        border-radius: 23px;
+    }
+
+    .search-bar input {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    .search-bar i {
+        cursor: pointer;
+    }
+
+    .button {
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .button:hover {
+        cursor: pointer;
+        border: 2px solid var(--back-color);
+        background-color: var(--primary-color);
+        color: var(--back-color);
+    }
+
+    .bars-menu {
+        display: none;
+    }
+
+    menu ul {
+        min-width: 512px;
+        max-width: 768px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    menu ul li {
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 569px) and (max-width: 1023px) {
+    .tools {
+        font-size: 16px;
+    }
+
+    .tools a,
+    .tools div {
+        margin: 8px;
+    }
+
+    .logo {
+        width: 100px;
+        height: 70px;
+        border: 1px solid red;
+    }
+
+    .search-bar {
+        height: 40px;
+        min-width: 384px;
+        max-width: 576px;
+        border-radius: 20px;
+    }
+
+    .search-bar input {
+        width: 85%;
+        font-size: 16px;
+        margin-right: 8px;
+    }
+
+    .search-bar i {
+        cursor: pointer;
+    }
+
+    .button {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .button:hover {
+        cursor: pointer;
+        border: 2px solid var(--back-color);
+        background-color: var(--primary-color);
+        color: var(--back-color);
+    }
+
+    .bars-menu {
+        display: none;
+    }
+
+    menu ul {
+        min-width: 384px;
+        max-width: 576px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    menu ul li {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 568px) {
+    .tools {
+        font-size: 12px;
+    }
+
+    .tools a,
+    .tools div {
+        margin: 5px;
+    }
+
+    .logo {
+        width: 72px;
+        height: 50px;
+        border: 1px solid red;
+    }
+
+    .search-bar {
+        width: 50%;
+        height: 25px;
+        border-radius: 20px;
+    }
+
+    .search-bar input {
+        width: 75%;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    .button {
+        width: 25px;
+        height: 25px;
+        border-radius: 8px;
+    }
+
+    .button:hover {
+        cursor: default;
+    }
+
+    .bars-menu {
+        cursor: pointer;
+        position: relative;
+        z-index: 90;
+    }
+
+    .bars-menu i {
+        position: absolute;
+        transition: transform 0.5s;
+    }
+
+    .bars-menu.active i:before {
+        content: "\f00d";
+        transform: rotate(45deg);
+    }
+
+    menu {
+        position: fixed;
+        width: 60%;
+        height: 100%;
+        background-color: var(--main-color);
+        right: -100%;
+        transition: right 0.5s;
+        z-index: 80;
+        overflow: hidden;
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    menu ul {
+        display: block;
+        width: 100%;
+    }
+
+    menu ul li {
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}

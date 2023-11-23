@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,500;0,600;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <title>Categoria Libros y Audiolibros</title>
+    <style>
+        /* Estilos específicos para la galería de productos */
+        .product-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product-card {
+            width: 250px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ddd;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .product-card h3 {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .product-card p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .product-card span {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body class="libros-audiolibros">
+    <!-- Contenido del encabezado -->
+    <header class="header">
+        <div class="tools">
+            <a class="logo" href="index.html"></a>
+
+            <div class="search-bar">
+                <input type="text" name="search-input" placeholder="Búsqueda...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div class="location button">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div class="cart-shopping button">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <div class="bars-menu button" id="bars-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <menu class="menu" id="menu">
+            <ul class="menu-options">
+                <li class="home">Inicio</li>
+                <li class="categories">
+                    Categorías
+                    <ul class="sub-menu">
+                        <li><a href="categoria_electronica.html">Electrónica</a></li>
+                        <li><a href="categoria_Ropa_y_Accesorios.html">Ropa y Accesorios</a></li>
+                        <li><a href="categoria_Hogar_y_Jardin.html">Hogar y Jardín</a></li>
+                        <li><a href="categoria_Juguetes_y_Juegos.html">Juguetes y Juegos</a></li>
+                        <li><a href="categoria_Salud_Y_Belleza.html">Salud y Belleza</a></li>
+                        <li><a href="categoria_Libros_Y_Audiolibros.html">Libros y Audiolibros</a></li>
+                        <li><a href="categoria_Instrumentos_Musicales.html">Instrumentos Musicales</a></li>
+                        <li><a href="categoria_Arte_Y_Manualidades.html">Arte y Manualidades</a></li>
+                        <li><a href="categoria_Alimentos_Y_Bebidas.html">Alimentos y Bebidas</a></li>
+                    </ul>
+                </li>
+                <li class="promo">Promociones</li>
+                <li class="help">Ayuda/PQRS/TyC</li>
+            </ul>
+        </menu>
+    </header>
+    <main>
+        <!-- Contenido específico de la página de Libros y Audiolibros -->
+        <div class="libros-audiolibros-section">
+            <center>
+                <h1>LIBROS Y AUDIOLIBROS</h1>
+            </center>
+            <center>
+                <p>Explora nuestra colección de libros y audiolibros para todos los gustos.</p>
+            </center>
+        </div>
+    <!-- Galería de productos -->
+<div class="product-gallery">
+    <!-- Producto 1 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1550853418-bb4348ff6a80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TGlicm8lMjBkZSUyME1pc3RlcmlvfGVufDB8fDB8fHww" alt="Imagen de Producto 1">
+        <div class="product-details">
+            <h3>Libro de Misterio</h3>
+            <p>Emocionante libro de misterio que te mantendrá en vilo hasta la última página.</p>
+            <span>$19.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://audiolibros.online/wp-content/uploads/1984.jpg" alt="Imagen de Producto 2">
+        <div class="product-details">
+            <h3>Audiolibro de Ciencia Ficción</h3>
+            <p>Sumérgete en una experiencia auditiva única con este audiolibro de ciencia ficción.</p>
+            <span>$29.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://i.pinimg.com/474x/b2/73/af/b273af18117d9c3a68bd8272af58c923.jpg" alt="Imagen de Producto 3">
+        <div class="product-details">
+            <h3>Libro de Desarrollo Personal</h3>
+            <p>Descubre herramientas prácticas para mejorar tu vida con este inspirador libro de desarrollo personal.</p>
+            <span>$24.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 4 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1421&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Producto 4">
+        <div class="product-details">
+            <h3>Audiolibro de Aventuras</h3>
+            <p>Vive emocionantes aventuras a través de tus oídos con este audiolibro cautivador.</p>
+            <span>$14.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 5 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1529158062015-cad636e205a0?q=80&w=1506&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Producto 5">
+        <div class="product-details">
+            <h3>Libro de Poesía</h3>
+            <p>Sumérgete en la belleza de las palabras con este libro de poesía que tocará tu corazón.</p>
+            <span>$34.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Producto 6 -->
+    <div class="product-card" onclick="expandProduct(this)">
+        <img src="https://images.unsplash.com/photo-1541876788-2221e585da7f?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen de Producto 6">
+        <div class="product-details">
+            <h3>Audiolibro de Historia</h3>
+            <p>Explora épocas pasadas a través de este audiolibro fascinante que cuenta historias cautivadoras.</p>
+            <span>$9.99</span>
+            <button class="buy-button">Comprar</button>
+        </div>
+    </div>
+</div>
+<!-- Sección expandida del producto -->
+<div id="expanded-product" class="expanded-product">
+    <span class="close-button" onclick="closeProductDetails()">×</span>
+    <div id="expanded-details" class="expanded-details">
+        <h3 id="expanded-title"></h3>
+        <img id="expanded-img" src="" alt="Product">
+        <p id="expanded-description"></p>
+        <span id="expanded-price"></span>
+        <button onclick="buyProduct()">Comprar ahora</button>
+    </div>
+</div>
+<script>
+    function expandProduct(element) {
+        // Obtener detalles del producto
+        var title = element.querySelector('h3').innerText;
+        var description = element.querySelector('p').innerText;
+        var price = element.querySelector('span').innerText;
+        var imgSrc = element.querySelector('img').src;
+
+        // Mostrar detalles expandidos
+        document.getElementById('expanded-title').innerText = title;
+        document.getElementById('expanded-description').innerText = description;
+        document.getElementById('expanded-price').innerText = price;
+        document.getElementById('expanded-img').src = imgSrc;
+        document.getElementById('expanded-product').style.display = 'flex';
+    }
+
+    function closeProductDetails() {
+        // Ocultar detalles expandidos
+        document.getElementById('expanded-product').style.display = 'none';
+    }
+</script>
+</main>
+    <script src="https://kit.fontawesome.com/df979b5c5b.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
